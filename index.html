@@ -1,1 +1,1323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hossein Safi — Telecoms Strategy & Regulation</title>
+  <meta name="description" content="Hossein Safi — telecoms specialist and consultant (TMT). Strategy, regulatory, and market analysis across mobile, IoT, non-terrestrial networks, and digital infrastructure." />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #0d0f14;
+      --ink-mid: #1a1e2a;
+      --ink-light: #252b3b;
+      --chalk: #f5f3ee;
+      --chalk-dim: #c8c4bc;
+      --chalk-faint: #8a8680;
+      --gold: #c9a84c;
+      --gold-dim: rgba(201, 168, 76, 0.18);
+      --gold-line: rgba(201, 168, 76, 0.35);
+      --cyan: #5ba3c9;
+      --border: rgba(255,255,255,0.065);
+      --border-hover: rgba(201, 168, 76, 0.45);
+      --radius: 4px;
+      --radius-lg: 8px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--ink);
+      color: var(--chalk);
+      line-height: 1.75;
+      font-size: 16px;
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+
+    /* ─── Animated background ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 900px 500px at 5% 0%, rgba(93, 129, 180, 0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 700px 700px at 95% 80%, rgba(201, 168, 76, 0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 500px 400px at 55% 45%, rgba(0,0,0,0.4) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Noise texture overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+      transform: translateZ(0);
+    }
+
+    /* ─── Layout ─── */
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 28px 100px;
+    }
+
+    /* ─── Topbar ─── */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0;
+      position: sticky;
+      top: 0;
+      background: rgba(13, 15, 20, 0.88);
+      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(18px);
+      z-index: 200;
+    }
+
+    .topbar-brand {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--chalk);
+      letter-spacing: 0.01em;
+    }
+
+    .topbar-brand span {
+      color: var(--gold);
+    }
+
+    .topbar-nav {
+      display: flex;
+      gap: 28px;
+    }
+
+    .topbar-nav a {
+      color: var(--chalk-faint);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .topbar-nav a:hover { color: var(--gold); }
+
+    /* ─── Hero ─── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 0;
+      min-height: 92vh;
+      align-items: center;
+      padding: 80px 0 60px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.9s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-text { padding-right: 60px; }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--chalk);
+      margin-bottom: 10px;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--chalk-dim);
+      font-weight: 400;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--chalk-dim);
+      font-weight: 400;
+      line-height: 1.65;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      color: var(--chalk-faint);
+      font-size: 0.82rem;
+      margin-bottom: 38px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-meta-item::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: block;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 22px;
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.22s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    .btn-primary:hover {
+      background: #d9b85c;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201, 168, 76, 0.28);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--chalk-dim);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold-line);
+      color: var(--chalk);
+      transform: translateY(-2px);
+    }
+
+    /* ─── Hero visual ─── */
+    .hero-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 20px;
+      animation: fadeUp 0.9s 0.15s ease both;
+    }
+
+    .avatar-frame {
+      position: relative;
+      width: 260px;
+      height: 300px;
+    }
+
+    .avatar-frame::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border: 1px solid var(--gold-line);
+      border-radius: 2px;
+      transform: translate(10px, 10px);
+      z-index: 0;
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      position: relative;
+      z-index: 1;
+      border-radius: 2px;
+      filter: grayscale(15%) contrast(1.05);
+    }
+
+    .credential-card {
+      background: var(--ink-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      width: 260px;
+    }
+
+    .credential-card-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .credential-card-value {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--chalk);
+      font-weight: 500;
+    }
+
+    .credential-card-sub {
+      font-size: 0.82rem;
+      color: var(--chalk-faint);
+      margin-top: 2px;
+    }
+
+    /* ─── Section base ─── */
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-bottom: 44px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--chalk);
+    }
+
+    h3 {
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      font-weight: 500;
+      color: var(--chalk);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    /* ─── About ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .about-lead {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 400;
+      line-height: 1.45;
+      color: var(--chalk);
+      margin-bottom: 24px;
+    }
+
+    .about-lead em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .about-body {
+      color: var(--chalk-dim);
+      line-height: 1.85;
+    }
+
+    .about-body p + p { margin-top: 14px; }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .stat {
+      background: var(--ink-mid);
+      padding: 24px 22px;
+      border: 1px solid var(--border);
+    }
+
+    .stat:first-child { border-radius: var(--radius) 0 0 0; }
+    .stat:nth-child(2) { border-radius: 0 var(--radius) 0 0; }
+    .stat:nth-child(3) { border-radius: 0 0 0 var(--radius); }
+    .stat:last-child { border-radius: 0 0 var(--radius) 0; }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--chalk-faint);
+      line-height: 1.4;
+    }
+
+    /* ─── Services ─── */
+    .services-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 52px;
+    }
+
+    .services-intro-text {
+      color: var(--chalk-dim);
+      line-height: 1.85;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .service-card {
+      background: var(--ink-mid);
+      border: 1px solid var(--border);
+      padding: 32px 28px;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover {
+      background: var(--ink-light);
+    }
+
+    .service-card:first-child { border-radius: var(--radius) 0 0 0; }
+    .service-card:nth-child(2) { border-radius: 0 var(--radius) 0 0; }
+    .service-card:nth-child(3) { border-radius: 0 0 0 var(--radius); }
+    .service-card:last-child { border-radius: 0 0 var(--radius) 0; }
+
+    .service-icon {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--gold-line);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      color: var(--gold);
+    }
+
+    .service-card ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 12px;
+    }
+
+    .service-card li {
+      color: var(--chalk-faint);
+      font-size: 0.88rem;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+    }
+
+    .service-card li::before {
+      content: '—';
+      color: var(--gold);
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .service-card li:last-child { border-bottom: none; }
+
+    /* ─── Skills ─── */
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .skill-group-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-line);
+    }
+
+    .skill-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skill-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--chalk-dim);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .skill-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    .skill-list li:last-child { border-bottom: none; }
+
+    .tools-row {
+      margin-top: 44px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .tools-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--chalk-faint);
+      margin-bottom: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      color: var(--chalk-faint);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Experience ─── */
+    .experience-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 60px;
+    }
+
+    .experience-sidebar {
+      position: sticky;
+      top: 80px;
+      align-self: start;
+    }
+
+    .exp-sidebar-text {
+      color: var(--chalk-dim);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .timeline { display: flex; flex-direction: column; }
+
+    .role {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 28px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+
+    .role:first-child { padding-top: 0; }
+    .role:last-child { border-bottom: none; }
+
+    .role-date {
+      font-size: 0.8rem;
+      color: var(--chalk-faint);
+      padding-top: 4px;
+      line-height: 1.5;
+    }
+
+    .role-date-range {
+      font-size: 0.75rem;
+      color: var(--chalk-faint);
+      margin-top: 3px;
+    }
+
+    .role-org {
+      font-size: 0.82rem;
+      color: var(--gold);
+      font-weight: 400;
+      margin-bottom: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    .role-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--chalk);
+      margin-bottom: 12px;
+    }
+
+    .role-body {
+      list-style: none;
+      padding: 0;
+    }
+
+    .role-body li {
+      color: var(--chalk-faint);
+      font-size: 0.88rem;
+      padding: 5px 0;
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .role-body li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 13px;
+      width: 5px; height: 1px;
+      background: var(--gold);
+    }
+
+    /* ─── Engagements ─── */
+    .engagements-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 0;
+    }
+
+    .engagement-card {
+      background: var(--ink-mid);
+      border: 1px solid var(--border);
+      padding: 32px 28px;
+      transition: all 0.25s;
+    }
+
+    .engagement-card:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+    .engagement-card:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+
+    .engagement-card:hover {
+      background: var(--ink-light);
+      border-color: var(--gold-line);
+    }
+
+    .engagement-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .engagement-card ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 12px;
+    }
+
+    .engagement-card li {
+      color: var(--chalk-faint);
+      font-size: 0.88rem;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--border);
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .engagement-card li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 14px;
+      width: 5px; height: 1px;
+      background: var(--gold);
+    }
+
+    .engagement-card li:last-child { border-bottom: none; }
+
+    /* ─── Contact CTA ─── */
+    .contact-section {
+      padding: 80px 0;
+      border-bottom: none;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      color: var(--chalk);
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+
+    .contact-heading em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .contact-sub {
+      color: var(--chalk-dim);
+      margin-bottom: 32px;
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+
+    .contact-detail-block {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-detail {
+      background: var(--ink-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.2s;
+    }
+
+    .contact-detail:hover {
+      border-color: var(--gold-line);
+    }
+
+    .contact-detail-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--gold-dim);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .contact-detail-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--chalk-faint);
+      margin-bottom: 3px;
+    }
+
+    .contact-detail-value {
+      font-size: 0.92rem;
+      color: var(--chalk);
+    }
+
+    .contact-detail-value a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact-detail-value a:hover { color: var(--gold); }
+
+    /* Email reveal */
+    .reveal-btn {
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 0.82rem;
+      cursor: pointer;
+      font-family: var(--font-body);
+      letter-spacing: 0.05em;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      padding: 0;
+      transition: color 0.2s;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      padding: 28px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      color: var(--chalk-faint);
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--chalk-faint);
+    }
+
+    /* ─── Scroll indicator ─── */
+    .scroll-hint {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--chalk-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 50px;
+      animation: fadeIn 1.5s 1s ease both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .scroll-hint-line {
+      width: 28px;
+      height: 1px;
+      background: var(--chalk-faint);
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 60px 0; }
+      .hero-text { padding-right: 0; }
+      .hero-visual { align-items: center; flex-direction: row; flex-wrap: wrap; justify-content: center; }
+      .avatar-frame { width: 200px; height: 230px; }
+      .credential-card { width: 200px; }
+      .about-grid, .services-intro, .skills-layout, .contact-layout { grid-template-columns: 1fr; gap: 36px; }
+      .experience-layout { grid-template-columns: 1fr; gap: 0; }
+      .experience-sidebar { position: static; margin-bottom: 32px; }
+      .role { grid-template-columns: 1fr; gap: 6px; }
+      .engagements-grid { grid-template-columns: 1fr; }
+      .engagement-card:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+      .engagement-card:last-child { border-radius: 0 0 var(--radius) var(--radius); }
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 0 18px 70px; }
+      .topbar-nav { display: none; }
+      h1 { font-size: 2.4rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { border-radius: 0 !important; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <nav class="topbar">
+    <div class="topbar-brand">Hossein <span>Safi</span></div>
+    <div class="topbar-nav">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#skills">Capabilities</a>
+      <a href="#experience">Experience</a>
+      <a href="#engagements">Engagements</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Telecoms Strategy &amp; Regulatory Consulting</div>
+      <h1>Hossein<br><em>Safi</em></h1>
+      <p class="hero-sub">
+        Consultant and telecoms specialist with 7+ years of experience delivering strategy, regulatory analysis, and market intelligence across the TMT sector.
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">Cambridge, United Kingdom</div>
+        <div class="hero-meta-item">UK Global Talent Awardee</div>
+        <div class="hero-meta-item">PhD in Telecommunications Engineering</div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://calendar.app.google/G5mBLu5Wmue2BrTTA" target="_blank" rel="noopener">
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          Book a meeting
+        </a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/hossein-safi-66674680/" target="_blank" rel="noopener">
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=G-j2JCAAAAAJ&hl=en" target="_blank" rel="noopener">
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Scholar
+        </a>
+      </div>
+      <div class="scroll-hint">
+        <div class="scroll-hint-line"></div>
+        Scroll to explore
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="avatar-frame">
+        <img class="avatar" src="assets/photo.jpg" alt="Hossein Safi" />
+      </div>
+      <div class="credential-card">
+        <div class="credential-card-label">Current Position</div>
+        <div class="credential-card-value">Post-Doctoral Research Associate</div>
+        <div class="credential-card-sub">University of Cambridge</div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="section-label">Profile</div>
+    <div class="about-grid">
+      <div>
+        <p class="about-lead">
+          Bridging the gap between <em>technical depth</em> and strategic clarity in telecoms.
+        </p>
+        <div class="about-body">
+          <p>Consultant and telecoms specialist with 7+ years of experience delivering strategy, regulatory, and market analysis across the TMT sector. Experienced in advising operators, regulators, and public sector clients on digital infrastructure, spectrum policy, and emerging connectivity.</p>
+          <p>PhD in Telecommunications Engineering. Core focus areas include mobile networks (2G to 6G), non-terrestrial and satellite communications, IoT ecosystems and regulation, and techno-economic modelling.</p>
+        </div>
+      </div>
+      <div>
+        <div class="stat-grid">
+          <div class="stat">
+            <div class="stat-number">7+</div>
+            <div class="stat-label">Years of TMT consulting and research</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">2G–6G</div>
+            <div class="stat-label">Full mobile network generation coverage</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">$400K</div>
+            <div class="stat-label">Funding secured for national IoT programme</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">PhD</div>
+            <div class="stat-label">Telecommunications Engineering</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-label">Services</div>
+    <div class="services-intro">
+      <h2>Consulting services built on rigorous analysis</h2>
+      <p class="services-intro-text">Typical engagement outputs include techno-economic models, regulatory briefings, executive slide decks, and investment decision memos. Each deliverable is built to communicate complex analysis clearly to senior audiences.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Market Sizing &amp; Forecasting</h3>
+        <ul>
+          <li>Demand modelling for mobile, IoT, digital infrastructure, and non-terrestrial networks</li>
+          <li>Segmentation, TAM-SAM-SOM, adoption scenarios, sensitivity analysis</li>
+          <li>Executive-ready implications and recommendations</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Regulatory &amp; Policy Advisory</h3>
+        <ul>
+          <li>Spectrum licensing strategy, pricing, and valuation support</li>
+          <li>5G and IoT regulatory frameworks and licensing design</li>
+          <li>Compliance and tender support for public sector and regulators</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>Techno-Economic &amp; Investment Cases</h3>
+        <ul>
+          <li>Cost-benefit and risk analysis for network architectures and rollouts</li>
+          <li>Benchmarking and scenario planning across technology options</li>
+          <li>Business case development and deployment trade-off analysis</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Stakeholder Engagement &amp; Delivery</h3>
+        <ul>
+          <li>Workshops and briefings with industry, government, and academia</li>
+          <li>Project scoping, governance support, and knowledge transfer</li>
+          <li>Clear storytelling from complex technical analysis</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-label">Capabilities</div>
+    <div class="skills-layout">
+      <div>
+        <h2 style="margin-bottom:32px;">Technical &amp; domain expertise</h2>
+        <div class="skill-group-label">Core domains</div>
+        <ul class="skill-list">
+          <li>Mobile networks (2G to 6G), network architecture, and performance modelling</li>
+          <li>Non-terrestrial and satellite communications, NTN service and feasibility analysis</li>
+          <li>Optical and fibre networks, LPWAN technologies, IoT platforms</li>
+          <li>Cross-layer and multi-access integration frameworks and standardisation context</li>
+        </ul>
+        <div class="tools-row">
+          <div class="tools-label">Tooling</div>
+          <div class="tags">
+            <span class="tag">MATLAB</span>
+            <span class="tag">Python</span>
+            <span class="tag">Excel modelling</span>
+            <span class="tag">System simulation</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2 style="margin-bottom:32px;">Analytical methods</h2>
+        <div class="skill-group-label">Analysis &amp; delivery</div>
+        <ul class="skill-list">
+          <li>Techno-economic modelling, scenario and sensitivity analysis</li>
+          <li>Cost-benefit and risk analysis, benchmarking, comparative evaluation</li>
+          <li>Market and competitive analysis, ecosystem mapping</li>
+          <li>Executive-level presentations, briefings, and reports</li>
+        </ul>
+        <div class="tools-row">
+          <div class="tools-label">Sector tags</div>
+          <div class="tags">
+            <span class="tag">TMT consulting</span>
+            <span class="tag">Spectrum &amp; licensing</span>
+            <span class="tag">IoT</span>
+            <span class="tag">NTN &amp; satellite</span>
+            <span class="tag">6G</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-label">Experience</div>
+    <div class="experience-layout">
+      <div class="experience-sidebar">
+        <h2 style="font-size:1.6rem; margin-bottom:14px;">Selected roles &amp; impact</h2>
+        <p class="exp-sidebar-text">A track record spanning academic research, commercial consulting, and public sector advisory — always with an emphasis on delivering clear, evidence-based insights.</p>
+      </div>
+      <div class="timeline">
+
+        <div class="role">
+          <div class="role-date">
+            <div style="color:var(--chalk); font-size:0.82rem;">Apr. 2024</div>
+            <div class="role-date-range">Present</div>
+          </div>
+          <div>
+            <div class="role-org">University of Cambridge</div>
+            <div class="role-title">Post-Doctoral Research Associate</div>
+            <ul class="role-body">
+              <li>Delivered technical and economic assessments of emerging non-terrestrial and satellite-based connectivity solutions.</li>
+              <li>Developed end-to-end link budget, performance, and cost models to inform feasibility and deployment trade-offs.</li>
+              <li>Produced stakeholder-facing reports on service differentiation strategies for next-generation connectivity.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-date">
+            <div style="color:var(--chalk); font-size:0.82rem;">Oct. 2023</div>
+            <div class="role-date-range">Mar. 2024</div>
+          </div>
+          <div>
+            <div class="role-org">University of Strathclyde</div>
+            <div class="role-title">Post-Doctoral Research Associate</div>
+            <ul class="role-body">
+              <li>Contributed to the REASON UK 6G flagship programme, supporting multi-access connectivity frameworks.</li>
+              <li>Developed system-level architectures and analytical models to assess advanced wireless technologies.</li>
+              <li>Aligned technical development with deployment, standardisation, and regulatory considerations alongside an industry-academic consortium.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-date">
+            <div style="color:var(--chalk); font-size:0.82rem;">Jul. 2021</div>
+            <div class="role-date-range">Apr. 2023</div>
+          </div>
+          <div>
+            <div class="role-org">IoT Innovation Centre</div>
+            <div class="role-title">Technical Ecosystem Lead</div>
+            <ul class="role-body">
+              <li>Led consulting engagements analysing the national IoT ecosystem, market structure, and competitive dynamics.</li>
+              <li>Delivered market segmentation and growth forecasting to inform licensing, policy, and investment decisions.</li>
+              <li>Secured $400K in funding to launch a nationwide IoT competition by developing the business case and aligning stakeholders.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-date">
+            <div style="color:var(--chalk); font-size:0.82rem;">Apr. 2020</div>
+            <div class="role-date-range">Jun. 2021</div>
+          </div>
+          <div>
+            <div class="role-org">Teyf Research &amp; Consulting Group</div>
+            <div class="role-title">Senior Analyst</div>
+            <ul class="role-body">
+              <li>Led strategy and commercial analysis for telecom operators and public sector clients.</li>
+              <li>Co-developed a 5G spectrum pricing and valuation model enabling a 15% increase in planned network upgrade investment.</li>
+              <li>Led RFP response development and pricing strategy for a nationwide IoT platform rollout.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-date">
+            <div style="color:var(--chalk); font-size:0.82rem;">Jan. 2019</div>
+            <div class="role-date-range">Aug. 2019</div>
+          </div>
+          <div>
+            <div class="role-org">University of British Columbia</div>
+            <div class="role-title">Visiting Researcher</div>
+            <ul class="role-body">
+              <li>Conducted analytical modelling of non-terrestrial backhaul and fronthaul links for 5G networks, supporting feasibility assessment of alternative network architectures.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="engagements">
+    <div class="section-label">Flagship Engagements</div>
+    <h2 style="margin-bottom:36px;">Strategy &amp; advisory programmes</h2>
+    <div class="engagements-grid">
+      <div class="engagement-card">
+        <div class="engagement-tag">UKRI 6G Flagship · REASON</div>
+        <h3>REASON Programme</h3>
+        <ul>
+          <li>Led development of integrating optical wireless into a multi-access framework in the REASON architecture.</li>
+          <li>Supported strategy and governance activities for a large-scale multi-partner programme involving operators, vendors, and academic institutions.</li>
+          <li>Led preparation of technical and strategy documentation aligned with industry standards.</li>
+          <li>Coordinated with 10+ stakeholders and supported regular steering and board-level meetings.</li>
+        </ul>
+      </div>
+      <div class="engagement-card">
+        <div class="engagement-tag">EPSRC Flagship · TITAN</div>
+        <h3>TITAN Programme</h3>
+        <ul>
+          <li>Served as interim project manager, supporting delivery planning, coordination, and reporting across a multidisciplinary consortium.</li>
+          <li>Developed and led an industry-academic strategy session on future connectivity frameworks.</li>
+          <li>Co-chaired a thematic workshop at IEEE INFOCOM.</li>
+          <li>Contributed to stakeholder engagement strategy.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="section-label">Contact</div>
+    <div class="contact-layout">
+      <div>
+        <h2 class="contact-heading">Let's discuss<br><em>your next project</em></h2>
+        <p class="contact-sub">
+          Available for consulting engagements, advisory roles, and research collaborations in the TMT sector. Start with a 30-minute introductory meeting to explore fit and scope.
+        </p>
+        <a class="btn btn-primary" href="https://calendar.app.google/G5mBLu5Wmue2BrTTA" target="_blank" rel="noopener">
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          Book a 30-minute meeting
+        </a>
+      </div>
+
+      <div class="contact-detail-block">
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-value">
+              <button class="reveal-btn" id="revealBtn" type="button">Copy email address</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">LinkedIn</div>
+            <div class="contact-detail-value">
+              <a href="https://www.linkedin.com/in/hossein-safi-66674680/" target="_blank" rel="noopener">View my LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Google Scholar</div>
+            <div class="contact-detail-value">
+              <a href="https://scholar.google.com/citations?user=G-j2JCAAAAAJ&hl=en" target="_blank" rel="noopener">View publications</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Location</div>
+            <div class="contact-detail-value">Cambridge, United Kingdom</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-brand">Hossein Safi</div>
+    <div class="footer-copy">© <span id="yr"></span> · Hosted on GitHub Pages</div>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  (function () {
+    const btn = document.getElementById('revealBtn');
+    if (!btn) return;
+
+    btn.addEventListener('click', async function () {
+      // Obfuscated by storing the string backwards to defeat static scrapers
+      const enc = 'moc.liamg@10niessoh.ifas';
+      const addr = enc.split('').reverse().join('');
+      
+      try {
+        await navigator.clipboard.writeText(addr);
+        
+        // Provide visual feedback
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied to clipboard ✓';
+        btn.style.color = 'var(--chalk)';
+        
+        // Revert back after a short delay
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.color = 'var(--gold)';
+        }, 2000);
+      } catch (err) {
+        // Fallback if clipboard API fails (e.g. old browser or permissions)
+        window.location.href = 'mailto:' + addr;
+      }
+    });
+  })();
+</script>
+</body>
+</html>
