@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hossein Safi — Senior Analyst, Real Wireless</title>
-  <meta name="description" content="Hossein Safi — Senior Analyst at Real Wireless. Telecoms strategy, regulation, and techno-economic analysis across mobile, non-terrestrial networks, and digital infrastructure." />
+  <title>Hossein Safi | Senior Analyst, Real Wireless</title>
+  <meta name="description" content="Hossein Safi, Senior Analyst at Real Wireless. Telecoms strategy, regulation, and techno economic analysis across mobile, non terrestrial networks, and digital infrastructure." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,28 +12,27 @@
 
   <style>
     :root {
-      /* Quiet luxury palette */
       --paper: #f4f1ec;
       --paper-warm: #ebe6dd;
       --ink: #14171c;
       --ink-soft: #2a2e36;
       --ink-mid: #5a5e66;
-      --ink-faint: #8a8d93;
       --rule: rgba(20, 23, 28, 0.10);
       --rule-soft: rgba(20, 23, 28, 0.06);
-      --accent: #8a3a2a;       /* deep terracotta */
-      --accent-soft: rgba(138, 58, 42, 0.08);
-
+      --accent: #8a3a2a;
       --serif: 'Fraunces', 'Times New Roman', Georgia, serif;
       --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
     }
 
-    @media (prefers-color-scheme: dark) {
-      /* Stays in light mode regardless — editorial feel needs paper background */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: var(--sans);
@@ -47,7 +46,6 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Subtle paper grain */
     body::before {
       content: '';
       position: fixed;
@@ -58,9 +56,10 @@
       mix-blend-mode: multiply;
     }
 
-    a { color: inherit; }
+    a {
+      color: inherit;
+    }
 
-    /* ─── Layout ─── */
     .wrap {
       position: relative;
       z-index: 1;
@@ -69,7 +68,6 @@
       padding: 0 40px;
     }
 
-    /* ─── Topbar ─── */
     .topbar {
       position: sticky;
       top: 0;
@@ -97,9 +95,11 @@
       letter-spacing: -0.01em;
       color: var(--ink);
     }
+
     .topbar-brand .dot {
       display: inline-block;
-      width: 5px; height: 5px;
+      width: 5px;
+      height: 5px;
       background: var(--accent);
       border-radius: 50%;
       vertical-align: middle;
@@ -111,6 +111,7 @@
       gap: 32px;
       align-items: center;
     }
+
     .topbar-nav a {
       color: var(--ink-mid);
       text-decoration: none;
@@ -119,7 +120,10 @@
       letter-spacing: 0.01em;
       transition: color 0.2s ease;
     }
-    .topbar-nav a:hover { color: var(--ink); }
+
+    .topbar-nav a:hover {
+      color: var(--ink);
+    }
 
     .topbar-cta {
       font-size: 0.82rem;
@@ -131,23 +135,23 @@
       transition: all 0.2s ease;
       font-weight: 500;
     }
+
     .topbar-cta:hover {
       background: var(--ink);
       color: var(--paper);
     }
 
-    /* ─── Reveal animations ─── */
     .reveal {
       opacity: 0;
       transform: translateY(18px);
       transition: opacity 0.9s ease, transform 0.9s ease;
     }
+
     .reveal.in {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* ─── Hero ─── */
     .hero {
       padding: 120px 0 100px;
       position: relative;
@@ -163,28 +167,39 @@
       color: var(--ink-mid);
       margin-bottom: 56px;
     }
+
     .hero-meta::before {
       content: '';
       width: 28px;
       height: 1px;
       background: var(--ink-mid);
     }
+
     .hero-meta .live {
       display: inline-flex;
       align-items: center;
       gap: 7px;
       color: var(--accent);
     }
+
     .hero-meta .live::before {
       content: '';
-      width: 6px; height: 6px;
+      width: 6px;
+      height: 6px;
       background: var(--accent);
       border-radius: 50%;
       animation: pulse 2.4s ease-in-out infinite;
     }
+
     @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%      { opacity: 0.4; transform: scale(0.85); }
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+      }
     }
 
     h1.hero-headline {
@@ -197,11 +212,13 @@
       max-width: 18ch;
       margin-bottom: 56px;
     }
+
     h1.hero-headline em {
       font-style: italic;
       font-weight: 300;
       color: var(--ink-soft);
     }
+
     h1.hero-headline .accent {
       color: var(--accent);
       font-style: italic;
@@ -215,6 +232,12 @@
       align-items: end;
     }
 
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     .hero-tagline {
       font-size: 1.05rem;
       color: var(--ink-soft);
@@ -225,16 +248,21 @@
     .hero-card {
       border-top: 1px solid var(--ink);
       padding-top: 18px;
+      margin-top: 36px;
       display: flex;
       flex-direction: column;
       gap: 6px;
+      width: 100%;
+      max-width: 380px;
     }
+
     .hero-card-label {
       font-size: 0.72rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--ink-mid);
     }
+
     .hero-card-role {
       font-family: var(--serif);
       font-size: 1.35rem;
@@ -242,26 +270,21 @@
       letter-spacing: -0.01em;
       color: var(--ink);
     }
+
     .hero-card-org {
       font-size: 0.92rem;
       color: var(--ink-mid);
     }
+
     .hero-card-org a {
       text-decoration: none;
       border-bottom: 1px solid var(--rule);
       transition: border-color 0.2s ease, color 0.2s ease;
     }
+
     .hero-card-org a:hover {
       color: var(--accent);
       border-bottom-color: var(--accent);
-    }
-
-
-    /* ─── Hero visual assets ─── */
-    .hero-copy {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
     }
 
     .hero-visual {
@@ -298,19 +321,6 @@
       object-position: center;
       filter: saturate(0.92) contrast(1.03);
       background: var(--paper);
-    }
-
-    .asset-missing {
-      display: none;
-      padding: 42px 26px;
-      min-height: 360px;
-      border: 1px dashed var(--rule);
-      background: rgba(255,255,255,0.20);
-      color: var(--ink-mid);
-      font-size: 0.88rem;
-      line-height: 1.6;
-      align-content: center;
-      text-align: center;
     }
 
     .visual-chip {
@@ -360,22 +370,358 @@
       border: 1px solid rgba(138, 58, 42, 0.18);
     }
 
-    .signal-orbit::before { inset: 22px; }
-    .signal-orbit::after { inset: 48px; background: var(--accent); border: none; opacity: 0.92; }
-
-    /* ─── Visual research map ─── */
-    .visuals-intro {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 90px;
-      align-items: end;
-      margin-bottom: 64px;
+    .signal-orbit::before {
+      inset: 22px;
     }
 
-    .visuals-intro p {
+    .signal-orbit::after {
+      inset: 48px;
+      background: var(--accent);
+      border: none;
+      opacity: 0.92;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      gap: 24px;
+      margin-top: 64px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+
+    .btn-ghost:hover {
+      background: var(--ink);
+      color: var(--paper);
+      transform: translateY(-1px);
+    }
+
+    .btn .arrow {
+      transition: transform 0.25s ease;
+    }
+
+    .btn:hover .arrow {
+      transform: translateX(3px);
+    }
+
+    section {
+      padding: 110px 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .section-eyebrow {
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-bottom: 44px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-eyebrow .num {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+      letter-spacing: 0;
+    }
+
+    .section-eyebrow::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      max-width: 22ch;
+    }
+
+    h2 em {
+      font-style: italic;
+      font-weight: 300;
       color: var(--ink-soft);
-      font-size: 1rem;
+    }
+
+    h2 .accent {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    h3 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .about-grid,
+    .practice-intro,
+    .visuals-intro,
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .about-lead {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      font-weight: 400;
+      line-height: 1.35;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 36px;
+    }
+
+    .about-lead em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .about-body,
+    .practice-intro-text,
+    .visuals-intro p,
+    .contact-sub,
+    .exp-aside p {
+      color: var(--ink-soft);
+      font-size: 0.98rem;
       line-height: 1.75;
+    }
+
+    .about-body p + p {
+      margin-top: 16px;
+    }
+
+    .about-side {
+      padding-top: 18px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .stat {
+      background: var(--paper-warm);
+      padding: 28px 26px;
+    }
+
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .stat-num em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      line-height: 1.5;
+    }
+
+    .practice-intro,
+    .visuals-intro {
+      align-items: end;
+      margin-bottom: 70px;
+    }
+
+    .practice-list,
+    .timeline {
+      border-top: 1px solid var(--ink);
+    }
+
+    .practice-item {
+      display: grid;
+      grid-template-columns: 60px 1fr 1.6fr;
+      gap: 40px;
+      padding: 38px 0;
+      border-bottom: 1px solid var(--rule);
+      transition: background 0.3s ease;
+      align-items: start;
+    }
+
+    .practice-item:hover {
+      background: var(--paper-warm);
+      margin: 0 -16px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .practice-num {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--accent);
+      padding-top: 4px;
+    }
+
+    .practice-title {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    .practice-desc {
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .practice-desc ul,
+    .eng-card ul,
+    .role-body,
+    .cap-list,
+    .contact-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .practice-desc li {
+      padding: 4px 0 4px 18px;
+      position: relative;
+    }
+
+    .practice-desc li::before,
+    .eng-card li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 10px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .practice-desc li::before {
+      top: 18px;
+    }
+
+    .cap-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    .cap-col h4 {
+      font-family: var(--sans);
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .cap-list {
+      margin-bottom: 36px;
+    }
+
+    .cap-list li {
+      padding: 13px 0;
+      border-bottom: 1px solid var(--rule-soft);
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+      font-size: 0.94rem;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+
+    .cap-list li:last-child {
+      border-bottom: none;
+    }
+
+    .cap-list .key {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--ink);
+      flex-shrink: 0;
+      width: 110px;
+      font-size: 0.95rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--ink-mid);
+      border: 1px solid var(--rule);
+      padding: 6px 14px;
+      border-radius: 999px;
+      letter-spacing: 0.01em;
+      transition: all 0.2s ease;
+    }
+
+    .tag:hover {
+      border-color: var(--ink);
+      color: var(--ink);
     }
 
     .graphics-grid {
@@ -400,7 +746,7 @@
 
     .graphic-media {
       aspect-ratio: 4 / 3;
-      background: linear-gradient(135deg, rgba(138,58,42,0.08), rgba(20,23,28,0.04));
+      background: linear-gradient(135deg, rgba(138, 58, 42, 0.08), rgba(20, 23, 28, 0.04));
       display: grid;
       place-items: center;
       border-bottom: 1px solid var(--rule);
@@ -412,15 +758,6 @@
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-
-    .graphic-media .asset-missing {
-      min-height: auto;
-      height: 100%;
-      width: 100%;
-      padding: 28px 22px;
-      border: none;
-      background: transparent;
     }
 
     .graphic-body {
@@ -438,323 +775,22 @@
       line-height: 1.65;
     }
 
-    .hero-cta-row {
-      display: flex;
-      gap: 24px;
-      margin-top: 64px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 26px;
-      border-radius: 999px;
-      font-family: var(--sans);
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      cursor: pointer;
-      border: 1px solid transparent;
-    }
-    .btn-primary {
-      background: var(--ink);
-      color: var(--paper);
-    }
-    .btn-primary:hover {
-      background: var(--accent);
-      transform: translateY(-1px);
-    }
-    .btn-ghost {
-      background: transparent;
-      color: var(--ink);
-      border-color: var(--ink);
-    }
-    .btn-ghost:hover {
-      background: var(--ink);
-      color: var(--paper);
-      transform: translateY(-1px);
-    }
-    .btn .arrow {
-      transition: transform 0.25s ease;
-    }
-    .btn:hover .arrow {
-      transform: translateX(3px);
-    }
-
-    /* ─── Section base ─── */
-    section {
-      padding: 110px 0;
-      border-top: 1px solid var(--rule);
-    }
-
-    .section-eyebrow {
-      font-size: 0.74rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--ink-mid);
-      margin-bottom: 44px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .section-eyebrow .num {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 400;
-      color: var(--accent);
-      letter-spacing: 0;
-    }
-    .section-eyebrow::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--rule);
-    }
-
-    h2 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      max-width: 22ch;
-    }
-    h2 em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--ink-soft);
-    }
-    h2 .accent { color: var(--accent); font-style: italic; }
-
-    h3 {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      margin-bottom: 10px;
-    }
-
-    /* ─── About ─── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 100px;
-      align-items: start;
-    }
-
-    .about-lead {
-      font-family: var(--serif);
-      font-size: clamp(1.5rem, 2.4vw, 2rem);
-      font-weight: 400;
-      line-height: 1.35;
-      letter-spacing: -0.015em;
-      color: var(--ink);
-      margin-bottom: 36px;
-    }
-    .about-lead em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .about-body {
-      color: var(--ink-soft);
-      font-size: 0.98rem;
-      line-height: 1.75;
-    }
-    .about-body p + p { margin-top: 16px; }
-
-    .about-side {
-      padding-top: 18px;
-    }
-
-    .stat-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--rule);
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .stat {
-      background: var(--paper-warm);
-      padding: 28px 26px;
-    }
-    .stat-num {
-      font-family: var(--serif);
-      font-size: 2.6rem;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      line-height: 1;
-      margin-bottom: 10px;
-    }
-    .stat-num em {
-      font-style: italic;
-      color: var(--accent);
-    }
-    .stat-label {
-      font-size: 0.82rem;
-      color: var(--ink-mid);
-      line-height: 1.5;
-    }
-
-    /* ─── Services / Practice ─── */
-    .practice-intro {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 100px;
-      align-items: end;
-      margin-bottom: 70px;
-    }
-    .practice-intro-text {
-      color: var(--ink-soft);
-      font-size: 1rem;
-      line-height: 1.75;
-    }
-
-    .practice-list {
-      border-top: 1px solid var(--ink);
-    }
-    .practice-item {
-      display: grid;
-      grid-template-columns: 60px 1fr 1.6fr;
-      gap: 40px;
-      padding: 38px 0;
-      border-bottom: 1px solid var(--rule);
-      transition: background 0.3s ease;
-      align-items: start;
-    }
-    .practice-item:hover {
-      background: var(--paper-warm);
-      margin: 0 -16px;
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-    .practice-num {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1rem;
-      color: var(--accent);
-      padding-top: 4px;
-    }
-    .practice-title {
-      font-family: var(--serif);
-      font-size: 1.5rem;
-      font-weight: 400;
-      letter-spacing: -0.015em;
-      line-height: 1.2;
-      color: var(--ink);
-    }
-    .practice-desc {
-      color: var(--ink-soft);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-    .practice-desc ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 0;
-    }
-    .practice-desc li {
-      padding: 4px 0;
-      padding-left: 18px;
-      position: relative;
-    }
-    .practice-desc li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-
-    /* ─── Capabilities (skills) ─── */
-    .cap-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-    }
-    .cap-col h4 {
-      font-family: var(--sans);
-      font-size: 0.74rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--ink-mid);
-      margin-bottom: 24px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--rule);
-    }
-    .cap-list {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 36px;
-    }
-    .cap-list li {
-      padding: 13px 0;
-      border-bottom: 1px solid var(--rule-soft);
-      display: flex;
-      gap: 16px;
-      align-items: baseline;
-      font-size: 0.94rem;
-      color: var(--ink-soft);
-      line-height: 1.55;
-    }
-    .cap-list li:last-child { border-bottom: none; }
-    .cap-list .key {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 400;
-      color: var(--ink);
-      flex-shrink: 0;
-      width: 110px;
-      font-size: 0.95rem;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 14px;
-    }
-    .tag {
-      font-size: 0.78rem;
-      font-weight: 400;
-      color: var(--ink-mid);
-      border: 1px solid var(--rule);
-      padding: 6px 14px;
-      border-radius: 999px;
-      letter-spacing: 0.01em;
-      transition: all 0.2s ease;
-    }
-    .tag:hover {
-      border-color: var(--ink);
-      color: var(--ink);
-    }
-
-    /* ─── Experience timeline ─── */
     .exp-layout {
       display: grid;
       grid-template-columns: 280px 1fr;
       gap: 100px;
     }
-    .exp-aside { position: sticky; top: 110px; align-self: start; }
+
+    .exp-aside {
+      position: sticky;
+      top: 110px;
+      align-self: start;
+    }
+
     .exp-aside p {
-      color: var(--ink-soft);
-      font-size: 0.95rem;
-      line-height: 1.7;
       margin-top: 18px;
     }
 
-    .timeline {
-      border-top: 1px solid var(--ink);
-    }
     .role {
       display: grid;
       grid-template-columns: 130px 1fr;
@@ -763,6 +799,7 @@
       border-bottom: 1px solid var(--rule);
       align-items: start;
     }
+
     .role-date {
       font-family: var(--serif);
       font-size: 0.92rem;
@@ -771,6 +808,7 @@
       padding-top: 4px;
       line-height: 1.5;
     }
+
     .role-date strong {
       display: block;
       font-style: normal;
@@ -778,6 +816,7 @@
       color: var(--ink);
       font-size: 0.95rem;
     }
+
     .role-org {
       font-size: 0.8rem;
       letter-spacing: 0.12em;
@@ -785,6 +824,7 @@
       color: var(--accent);
       margin-bottom: 6px;
     }
+
     .role-title {
       font-family: var(--serif);
       font-size: 1.4rem;
@@ -793,32 +833,31 @@
       color: var(--ink);
       margin-bottom: 16px;
     }
-    .role-body {
-      list-style: none;
-      padding: 0;
-    }
+
     .role-body li {
       color: var(--ink-soft);
       font-size: 0.95rem;
       line-height: 1.65;
-      padding: 6px 0;
-      padding-left: 22px;
+      padding: 6px 0 6px 22px;
       position: relative;
     }
+
     .role-body li::before {
       content: '';
       position: absolute;
-      left: 0; top: 16px;
-      width: 10px; height: 1px;
+      left: 0;
+      top: 16px;
+      width: 10px;
+      height: 1px;
       background: var(--accent);
     }
 
-    /* ─── Engagements ─── */
     .eng-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
     }
+
     .eng-card {
       background: var(--paper-warm);
       border: 1px solid var(--rule);
@@ -826,11 +865,13 @@
       padding: 40px 36px;
       transition: all 0.3s ease;
     }
+
     .eng-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 30px rgba(20, 23, 28, 0.07);
       border-color: var(--ink);
     }
+
     .eng-tag {
       font-size: 0.72rem;
       letter-spacing: 0.16em;
@@ -838,39 +879,37 @@
       color: var(--accent);
       margin-bottom: 16px;
     }
+
     .eng-card h3 {
       font-size: 1.55rem;
       margin-bottom: 18px;
     }
-    .eng-card ul {
-      list-style: none;
-      padding: 0;
-    }
+
     .eng-card li {
-      padding: 9px 0;
-      padding-left: 18px;
+      padding: 9px 0 9px 18px;
       position: relative;
       color: var(--ink-soft);
       font-size: 0.94rem;
       line-height: 1.6;
       border-bottom: 1px solid var(--rule-soft);
     }
-    .eng-card li:last-child { border-bottom: none; }
-    .eng-card li::before {
-      content: '—';
-      position: absolute;
-      left: 0; top: 9px;
-      color: var(--accent);
+
+    .eng-card li:last-child {
+      border-bottom: none;
     }
 
-    /* ─── Contact ─── */
-    .contact-section { padding: 130px 0 100px; }
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 100px;
-      align-items: start;
+    .eng-card li::before {
+      top: 20px;
     }
+
+    .contact-section {
+      padding: 130px 0 100px;
+    }
+
+    .contact-layout {
+      grid-template-columns: 1.3fr 1fr;
+    }
+
     .contact-headline {
       font-family: var(--serif);
       font-size: clamp(2.2rem, 4.4vw, 3.6rem);
@@ -879,26 +918,28 @@
       letter-spacing: -0.02em;
       margin-bottom: 28px;
     }
+
     .contact-headline em {
       font-style: italic;
       font-weight: 300;
       color: var(--ink-soft);
     }
-    .contact-headline .accent { color: var(--accent); font-style: italic; }
+
+    .contact-headline .accent {
+      color: var(--accent);
+      font-style: italic;
+    }
 
     .contact-sub {
-      color: var(--ink-soft);
       font-size: 1.05rem;
-      line-height: 1.7;
       margin-bottom: 40px;
       max-width: 50ch;
     }
 
     .contact-list {
-      list-style: none;
-      padding: 0;
       border-top: 1px solid var(--rule);
     }
+
     .contact-list li {
       display: grid;
       grid-template-columns: 100px 1fr;
@@ -907,17 +948,20 @@
       border-bottom: 1px solid var(--rule);
       align-items: center;
     }
+
     .contact-list .label {
       font-size: 0.72rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--ink-mid);
     }
+
     .contact-list .value {
       font-family: var(--serif);
       font-size: 1.05rem;
       color: var(--ink);
     }
+
     .contact-list .value a,
     .contact-list .value button {
       color: var(--ink);
@@ -932,26 +976,29 @@
       align-items: center;
       gap: 8px;
     }
+
     .contact-list .value a:hover,
     .contact-list .value button:hover {
       color: var(--accent);
     }
+
     .contact-list .value .arrow {
       font-size: 0.85rem;
       color: var(--ink-mid);
       transition: transform 0.2s ease;
     }
+
     .contact-list .value a:hover .arrow,
     .contact-list .value button:hover .arrow {
       transform: translateX(3px);
       color: var(--accent);
     }
 
-    /* ─── Footer ─── */
     footer {
       border-top: 1px solid var(--rule);
       padding: 36px 0;
     }
+
     .footer-inner {
       display: flex;
       align-items: center;
@@ -961,49 +1008,135 @@
       font-size: 0.82rem;
       color: var(--ink-mid);
     }
+
     .footer-brand {
       font-family: var(--serif);
       font-style: italic;
       color: var(--ink);
     }
 
-    /* ─── Responsive ─── */
+    ::selection {
+      background: var(--accent);
+      color: var(--paper);
+    }
+
     @media (max-width: 960px) {
-      .wrap, .topbar-inner { padding-left: 28px; padding-right: 28px; }
-      .hero { padding: 80px 0 70px; }
-      .hero-row { grid-template-columns: 1fr; gap: 48px; align-items: start; }
-      .hero-visual { min-height: auto; max-width: 480px; }
-      .visual-chip { left: 18px; bottom: 28px; }
-      .signal-orbit { right: 12px; top: 24px; }
-      .about-grid, .practice-intro, .cap-grid, .contact-layout, .visuals-intro { grid-template-columns: 1fr; gap: 50px; }
-      .graphics-grid { grid-template-columns: 1fr; }
-      .exp-layout { grid-template-columns: 1fr; gap: 40px; }
-      .exp-aside { position: static; }
-      .practice-item { grid-template-columns: 30px 1fr; gap: 18px; }
-      .practice-item .practice-desc { grid-column: 1 / -1; padding-left: 30px; }
-      .role { grid-template-columns: 1fr; gap: 8px; }
-      .eng-grid { grid-template-columns: 1fr; }
-      .topbar-nav { display: none; }
+      .wrap,
+      .topbar-inner {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+
+      .hero {
+        padding: 80px 0 70px;
+      }
+
+      .hero-row,
+      .about-grid,
+      .practice-intro,
+      .cap-grid,
+      .visuals-intro,
+      .contact-layout,
+      .exp-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .hero-row {
+        align-items: start;
+      }
+
+      .hero-visual {
+        min-height: auto;
+        max-width: 480px;
+      }
+
+      .visual-chip {
+        left: 18px;
+        bottom: 28px;
+      }
+
+      .signal-orbit {
+        right: 12px;
+        top: 24px;
+      }
+
+      .graphics-grid,
+      .eng-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .exp-aside {
+        position: static;
+      }
+
+      .practice-item {
+        grid-template-columns: 30px 1fr;
+        gap: 18px;
+      }
+
+      .practice-item .practice-desc {
+        grid-column: 1 / -1;
+        padding-left: 30px;
+      }
+
+      .role {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .topbar-nav {
+        display: none;
+      }
     }
 
     @media (max-width: 560px) {
-      .wrap, .topbar-inner { padding-left: 22px; padding-right: 22px; }
-      section { padding: 80px 0; }
-      .hero { padding: 60px 0 60px; }
-      .hero-cta-row { flex-direction: column; align-items: stretch; }
-      .btn { justify-content: center; }
-      .stat-grid { grid-template-columns: 1fr; }
-      .visual-chip { position: static; max-width: none; margin-top: 14px; }
-      .signal-orbit { display: none; }
-      .contact-list li { grid-template-columns: 1fr; gap: 4px; padding: 18px 0; }
-    }
+      .wrap,
+      .topbar-inner {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
 
-    /* Subtle selection */
-    ::selection { background: var(--accent); color: var(--paper); }
+      section {
+        padding: 80px 0;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero-cta-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        justify-content: center;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-chip {
+        position: static;
+        max-width: none;
+        margin-top: 14px;
+      }
+
+      .signal-orbit {
+        display: none;
+      }
+
+      .contact-list li {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 18px 0;
+      }
+    }
   </style>
 </head>
 <body>
-
   <nav class="topbar">
     <div class="topbar-inner">
       <div class="topbar-brand"><span class="dot"></span>Hossein Safi</div>
@@ -1020,8 +1153,6 @@
   </nav>
 
   <div class="wrap">
-
-    <!-- HERO -->
     <header class="hero">
       <div class="hero-meta reveal">
         <span class="live">Now</span>
@@ -1039,7 +1170,7 @@
       <div class="hero-row reveal">
         <div class="hero-copy">
           <p class="hero-tagline">
-            I help operators, regulators, and investors make confident decisions in a fast-moving telecoms landscape — combining deep technical insight with clear, executive-ready analysis.
+            I help operators, regulators, and investors make confident decisions in a fast moving telecoms landscape, combining deep technical insight with clear, executive ready analysis.
           </p>
 
           <div class="hero-card">
@@ -1055,31 +1186,24 @@
               Book an introductory call
               <span class="arrow">→</span>
             </a>
-            <a class="btn btn-ghost" href="https://www.linkedin.com/in/hossein-safi-66674680/" target="_blank" rel="noopener">
-              LinkedIn
-            </a>
-            <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=G-j2JCAAAAAJ&hl=en" target="_blank" rel="noopener">
-              Publications
-            </a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/hossein-safi-66674680/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=G-j2JCAAAAAJ&hl=en" target="_blank" rel="noopener">Publications</a>
           </div>
         </div>
 
         <div class="hero-visual" aria-label="Profile photo and communication systems visual motif">
-          <!-- Replace assets/profile-photo.jpg with the exact name of your photo in the assets folder. Recommended crop: vertical portrait, 4:5 ratio, at least 1200 px high. -->
           <div class="profile-frame">
-            <img class="profile-photo" src="assets/profile-photo.jpg" alt="Portrait of Hossein Safi" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-            <div class="asset-missing">Profile photo placeholder. Upload your portrait to the assets folder and update this path if needed.</div>
+            <img class="profile-photo" src="assets/profile-photo.jpg" alt="Portrait of Hossein Safi">
           </div>
           <div class="signal-orbit" aria-hidden="true"></div>
           <div class="visual-chip">
             <div class="visual-chip-label">Focus</div>
-            <div class="visual-chip-text">6G, NTN, optical wireless, AI-enabled networks, and telecom techno-economics.</div>
+            <div class="visual-chip-text">6G, NTN, optical wireless, AI enabled networks, and telecom techno economics.</div>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- ABOUT -->
     <section id="about">
       <div class="section-eyebrow"><span class="num">01</span> Profile <span></span></div>
 
@@ -1089,9 +1213,9 @@
             A consultant who bridges <em>deep technical analysis</em> and the strategic decisions leaders actually have to make.
           </p>
           <div class="about-body">
-            <p>I'm a Senior Analyst at Real Wireless, working at the intersection of wireless innovation, non-terrestrial networks, and AI-driven communication systems. My focus is helping clients translate emerging technology into clear, defensible strategy — across future network architectures, hybrid RF–optical systems, and data-driven performance evaluation.</p>
-            <p>Before joining Real Wireless, I was a Research Associate at the University of Cambridge, contributing to flagship UK programmes on next-generation connectivity. I hold a PhD in Telecommunications Engineering and am a UK Global Talent awardee.</p>
-            <p>I work best where rigour matters — investment cases, regulatory submissions, market models, and board-level recommendations that need to hold up under scrutiny.</p>
+            <p>I'm a Senior Analyst at Real Wireless, working at the intersection of wireless innovation, non terrestrial networks, and AI driven communication systems. My focus is helping clients translate emerging technology into clear, defensible strategy across future network architectures, hybrid RF optical systems, and data driven performance evaluation.</p>
+            <p>Before joining Real Wireless, I was a Research Associate at the University of Cambridge, contributing to flagship UK programmes on next generation connectivity. I hold a PhD in Telecommunications Engineering and am a UK Global Talent awardee.</p>
+            <p>I work best where rigour matters: investment cases, regulatory submissions, market models, and board level recommendations that need to hold up under scrutiny.</p>
           </div>
         </div>
 
@@ -1118,13 +1242,12 @@
       </div>
     </section>
 
-    <!-- PRACTICE -->
     <section id="practice">
       <div class="section-eyebrow"><span class="num">02</span> Practice areas <span></span></div>
 
       <div class="practice-intro">
         <h2 class="reveal">Where I tend to <em>add the most value.</em></h2>
-        <p class="practice-intro-text reveal">Engagements typically resolve into one of four shapes: a market or demand model; a regulatory or licensing position; a techno-economic case for an architecture or rollout; or a structured stakeholder process. Each is built to communicate complex evidence clearly to senior audiences.</p>
+        <p class="practice-intro-text reveal">Engagements typically resolve into one of four shapes: a market or demand model, a regulatory or licensing position, a techno economic case for an architecture or rollout, or a structured stakeholder process. Each is built to communicate complex evidence clearly to senior audiences.</p>
       </div>
 
       <div class="practice-list">
@@ -1134,8 +1257,8 @@
           <div class="practice-desc">
             <ul>
               <li>Demand modelling for mobile, IoT, NTN, and digital infrastructure</li>
-              <li>Segmentation, TAM–SAM–SOM, adoption scenarios, sensitivity analysis</li>
-              <li>Executive-ready implications and recommendations</li>
+              <li>Segmentation, TAM, SAM, SOM, adoption scenarios, and sensitivity analysis</li>
+              <li>Executive ready implications and recommendations</li>
             </ul>
           </div>
         </div>
@@ -1154,12 +1277,12 @@
 
         <div class="practice-item reveal">
           <div class="practice-num">iii.</div>
-          <div class="practice-title">Techno-economic &amp; investment cases</div>
+          <div class="practice-title">Techno economic &amp; investment cases</div>
           <div class="practice-desc">
             <ul>
-              <li>Cost–benefit and risk analysis for network architectures and rollouts</li>
+              <li>Cost benefit and risk analysis for network architectures and rollouts</li>
               <li>Benchmarking and scenario planning across technology options</li>
-              <li>Business case development and deployment trade-off analysis</li>
+              <li>Business case development and deployment trade off analysis</li>
             </ul>
           </div>
         </div>
@@ -1178,7 +1301,6 @@
       </div>
     </section>
 
-    <!-- CAPABILITIES -->
     <section id="capabilities">
       <div class="section-eyebrow"><span class="num">03</span> Capabilities <span></span></div>
 
@@ -1189,28 +1311,28 @@
           <h4>Domain expertise</h4>
           <ul class="cap-list">
             <li><span class="key">Mobile</span><span>2G to 6G network architecture and performance modelling</span></li>
-            <li><span class="key">NTN</span><span>Non-terrestrial and satellite communications, service feasibility</span></li>
-            <li><span class="key">Optical</span><span>Optical and fibre networks, hybrid RF–optical systems</span></li>
+            <li><span class="key">NTN</span><span>Non terrestrial and satellite communications, service feasibility</span></li>
+            <li><span class="key">Optical</span><span>Optical and fibre networks, hybrid RF optical systems</span></li>
             <li><span class="key">IoT</span><span>LPWAN technologies, IoT platforms, and ecosystem regulation</span></li>
-            <li><span class="key">AI</span><span>Data-driven and AI-enabled network optimisation</span></li>
+            <li><span class="key">AI</span><span>Data driven and AI enabled network optimisation</span></li>
           </ul>
           <div class="tags">
             <span class="tag">5G / 6G</span>
             <span class="tag">NTN &amp; satellite</span>
             <span class="tag">IoT</span>
             <span class="tag">Spectrum &amp; licensing</span>
-            <span class="tag">Hybrid RF–optical</span>
+            <span class="tag">Hybrid RF optical</span>
           </div>
         </div>
 
         <div class="cap-col reveal">
           <h4>Analytical methods</h4>
           <ul class="cap-list">
-            <li><span class="key">Modelling</span><span>Techno-economic, scenario, and sensitivity analysis</span></li>
-            <li><span class="key">Evaluation</span><span>Cost–benefit, risk, benchmarking, comparative options</span></li>
+            <li><span class="key">Modelling</span><span>Techno economic, scenario, and sensitivity analysis</span></li>
+            <li><span class="key">Evaluation</span><span>Cost benefit, risk, benchmarking, and comparative options</span></li>
             <li><span class="key">Markets</span><span>Market and competitive analysis, ecosystem mapping</span></li>
             <li><span class="key">Delivery</span><span>Executive presentations, briefings, and structured reports</span></li>
-            <li><span class="key">Tooling</span><span>MATLAB, Python, Excel modelling, system simulation</span></li>
+            <li><span class="key">Tooling</span><span>MATLAB, Python, Excel modelling, and system simulation</span></li>
           </ul>
           <div class="tags">
             <span class="tag">TMT consulting</span>
@@ -1222,22 +1344,18 @@
       </div>
     </section>
 
-
-    <!-- VISUALS -->
     <section id="visuals">
       <div class="section-eyebrow"><span class="num">04</span> Visual identity <span></span></div>
 
       <div class="visuals-intro">
         <h2 class="reveal">Graphics that connect the page to <em>your technical domain.</em></h2>
-        <p class="reveal">These cards use local image placeholders so the page remains easy to maintain. Generate the graphics using the prompts in the HTML comments below, save them in the assets folder with the specified names, and the page will display them automatically.</p>
+        <p class="reveal">A concise visual layer linking the page to optical wireless systems, 6G and NTN strategy, and telecom techno economic analysis.</p>
       </div>
 
       <div class="graphics-grid">
         <article class="graphic-card reveal">
           <div class="graphic-media">
-            <!-- AI image prompt for assets/owc_graphic.png: Create a refined editorial technical illustration of indoor optical wireless communication using VCSEL array beams, grid of beams coverage, warm paper background, subtle terracotta accents, clean line art, minimal premium academic website style, no text, no logos. -->
-            <img src="assets/owc_graphic.png" alt="Optical wireless communication and VCSEL beam coverage graphic" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-            <div class="asset-missing">Upload assets/owc_graphic.png</div>
+            <img src="assets/owc_graphic.png" alt="Optical wireless communication and VCSEL beam coverage graphic">
           </div>
           <div class="graphic-body">
             <h3>Optical wireless systems</h3>
@@ -1247,9 +1365,7 @@
 
         <article class="graphic-card reveal">
           <div class="graphic-media">
-            <!-- AI image prompt for assets/6g_network_graphic.png: Create a minimal 6G network architecture illustration showing terrestrial cells, satellite connectivity, edge AI nodes, and multi access orchestration, warm neutral background, fine technical lines, terracotta and dark ink accents, professional consulting website style, no text, no logos. -->
-            <img src="assets/6g_network_graphic.png" alt="6G terrestrial and non terrestrial network architecture graphic" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-            <div class="asset-missing">Upload assets/6g_network_graphic.png</div>
+            <img src="assets/6g_network_graphic.png" alt="6G terrestrial and non terrestrial network architecture graphic">
           </div>
           <div class="graphic-body">
             <h3>6G and NTN strategy</h3>
@@ -1259,9 +1375,7 @@
 
         <article class="graphic-card reveal">
           <div class="graphic-media">
-            <!-- AI image prompt for assets/analytics_graphic.png: Create a clean abstract telecom techno economic analysis visual with network cost curves, demand scenarios, coverage layers, and decision dashboards, elegant editorial style, warm paper texture, terracotta accent, dark ink lines, no text, no logos. -->
-            <img src="assets/analytics_graphic.png" alt="Telecom techno economic analysis and demand modelling graphic" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-            <div class="asset-missing">Upload assets/analytics_graphic.png</div>
+            <img src="assets/analytics_graphic.png" alt="Telecom techno economic analysis and demand modelling graphic">
           </div>
           <div class="graphic-body">
             <h3>Techno economic analysis</h3>
@@ -1271,71 +1385,57 @@
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
     <section id="experience">
       <div class="section-eyebrow"><span class="num">05</span> Experience <span></span></div>
 
       <div class="exp-layout">
         <aside class="exp-aside reveal">
           <h2 style="font-size:1.9rem;">Selected roles<br><em>&amp; impact.</em></h2>
-          <p>A track record spanning industry consulting, applied research, and public-sector advisory — always with an emphasis on delivering clear, evidence-based insight that decisions can rest on.</p>
+          <p>A track record spanning industry consulting, applied research, and public sector advisory, with an emphasis on delivering clear, evidence based insight that decisions can rest on.</p>
         </aside>
 
         <div class="timeline">
-
           <div class="role reveal">
-            <div class="role-date">
-              <strong>Apr 2026</strong>
-              Present
-            </div>
+            <div class="role-date"><strong>Apr 2026</strong>Present</div>
             <div>
               <div class="role-org">Real Wireless</div>
               <div class="role-title">Senior Analyst</div>
               <ul class="role-body">
-                <li>Advising operators, regulators, and investors at the intersection of wireless innovation, non-terrestrial networks, and AI-driven communication systems.</li>
-                <li>Translating emerging technologies into actionable strategy across future network architectures, hybrid RF–optical systems, and data-driven performance evaluation.</li>
+                <li>Advising operators, regulators, and investors at the intersection of wireless innovation, non terrestrial networks, and AI driven communication systems.</li>
+                <li>Translating emerging technologies into actionable strategy across future network architectures, hybrid RF optical systems, and data driven performance evaluation.</li>
                 <li>Combining technical modelling, system analysis, and market insight to inform investment and deployment decisions.</li>
               </ul>
             </div>
           </div>
 
           <div class="role reveal">
-            <div class="role-date">
-              <strong>Apr 2024</strong>
-              Mar 2026
-            </div>
+            <div class="role-date"><strong>Apr 2024</strong>Mar 2026</div>
             <div>
               <div class="role-org">University of Cambridge</div>
-              <div class="role-title">Post-Doctoral Research Associate</div>
+              <div class="role-title">Post Doctoral Research Associate</div>
               <ul class="role-body">
-                <li>Led technical and economic assessments of emerging non-terrestrial and satellite-based connectivity solutions.</li>
-                <li>Developed end-to-end link budget, performance, and cost models to inform feasibility and deployment trade-offs.</li>
-                <li>Produced stakeholder-facing reports on service differentiation strategies for next-generation connectivity.</li>
+                <li>Led technical and economic assessments of emerging non terrestrial and satellite based connectivity solutions.</li>
+                <li>Developed end to end link budget, performance, and cost models to inform feasibility and deployment trade offs.</li>
+                <li>Produced stakeholder facing reports on service differentiation strategies for next generation connectivity.</li>
               </ul>
             </div>
           </div>
 
           <div class="role reveal">
-            <div class="role-date">
-              <strong>Oct 2023</strong>
-              Mar 2024
-            </div>
+            <div class="role-date"><strong>Oct 2023</strong>Mar 2024</div>
             <div>
               <div class="role-org">University of Strathclyde</div>
-              <div class="role-title">Post-Doctoral Research Associate</div>
+              <div class="role-title">Post Doctoral Research Associate</div>
               <ul class="role-body">
-                <li>Contributed to the REASON UK 6G flagship programme, supporting multi-access connectivity frameworks.</li>
-                <li>Developed system-level architectures and analytical models to assess advanced wireless technologies.</li>
-                <li>Aligned technical work with deployment, standardisation, and regulatory considerations alongside an industry–academic consortium.</li>
+                <li>Contributed to the REASON UK 6G flagship programme, supporting multi access connectivity frameworks.</li>
+                <li>Developed system level architectures and analytical models to assess advanced wireless technologies.</li>
+                <li>Aligned technical work with deployment, standardisation, and regulatory considerations alongside an industry and academic consortium.</li>
               </ul>
             </div>
           </div>
 
           <div class="role reveal">
-            <div class="role-date">
-              <strong>Jul 2021</strong>
-              Apr 2023
-            </div>
+            <div class="role-date"><strong>Jul 2021</strong>Apr 2023</div>
             <div>
               <div class="role-org">IoT Innovation Centre</div>
               <div class="role-title">Technical Ecosystem Lead</div>
@@ -1348,40 +1448,32 @@
           </div>
 
           <div class="role reveal">
-            <div class="role-date">
-              <strong>Apr 2020</strong>
-              Jun 2021
-            </div>
+            <div class="role-date"><strong>Apr 2020</strong>Jun 2021</div>
             <div>
               <div class="role-org">Teyf Research &amp; Consulting Group</div>
               <div class="role-title">Senior Analyst</div>
               <ul class="role-body">
-                <li>Led strategy and commercial analysis for telecom operators and public-sector clients.</li>
-                <li>Co-developed a 5G spectrum pricing and valuation model enabling a 15% increase in planned network upgrade investment.</li>
+                <li>Led strategy and commercial analysis for telecom operators and public sector clients.</li>
+                <li>Co developed a 5G spectrum pricing and valuation model enabling a 15% increase in planned network upgrade investment.</li>
                 <li>Led RFP response development and pricing strategy for a nationwide IoT platform rollout.</li>
               </ul>
             </div>
           </div>
 
           <div class="role reveal">
-            <div class="role-date">
-              <strong>Jan 2019</strong>
-              Aug 2019
-            </div>
+            <div class="role-date"><strong>Jan 2019</strong>Aug 2019</div>
             <div>
               <div class="role-org">University of British Columbia</div>
               <div class="role-title">Visiting Researcher</div>
               <ul class="role-body">
-                <li>Conducted analytical modelling of non-terrestrial backhaul and fronthaul links for 5G networks, supporting feasibility assessment of alternative network architectures.</li>
+                <li>Conducted analytical modelling of non terrestrial backhaul and fronthaul links for 5G networks, supporting feasibility assessment of alternative network architectures.</li>
               </ul>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ENGAGEMENTS -->
     <section id="engagements">
       <div class="section-eyebrow"><span class="num">06</span> Flagship engagements <span></span></div>
 
@@ -1392,10 +1484,10 @@
           <div class="eng-tag">UKRI 6G Flagship · REASON</div>
           <h3>REASON Programme</h3>
           <ul>
-            <li>Led integration of optical wireless into a multi-access framework within the REASON architecture.</li>
-            <li>Supported strategy and governance for a large multi-partner programme involving operators, vendors, and academic institutions.</li>
+            <li>Led integration of optical wireless into a multi access framework within the REASON architecture.</li>
+            <li>Supported strategy and governance for a large multi partner programme involving operators, vendors, and academic institutions.</li>
             <li>Led preparation of technical and strategy documentation aligned with industry standards.</li>
-            <li>Coordinated with 10+ stakeholders and supported regular steering and board-level meetings.</li>
+            <li>Coordinated with more than 10 stakeholders and supported regular steering and board level meetings.</li>
           </ul>
         </div>
 
@@ -1403,16 +1495,15 @@
           <div class="eng-tag">EPSRC Flagship · TITAN</div>
           <h3>TITAN Programme</h3>
           <ul>
-            <li>Served as interim project manager — supporting delivery planning, coordination, and reporting across a multidisciplinary consortium.</li>
-            <li>Developed and led an industry–academic strategy session on future connectivity frameworks.</li>
-            <li>Co-chaired a thematic workshop at IEEE INFOCOM.</li>
+            <li>Served as interim project manager, supporting delivery planning, coordination, and reporting across a multidisciplinary consortium.</li>
+            <li>Developed and led an industry and academic strategy session on future connectivity frameworks.</li>
+            <li>Co chaired a thematic workshop at IEEE INFOCOM.</li>
             <li>Contributed to the broader stakeholder engagement strategy.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="contact-section">
       <div class="section-eyebrow"><span class="num">07</span> Contact <span></span></div>
 
@@ -1424,10 +1515,10 @@
             <span class="accent">Let's talk.</span>
           </h2>
           <p class="contact-sub">
-            Available for selective consulting engagements, advisory roles, and research collaborations across the TMT sector. The best place to start is a 30-minute introductory call.
+            Available for selective consulting engagements, advisory roles, and research collaborations across the TMT sector. The best place to start is a 30 minute introductory call.
           </p>
           <a class="btn btn-primary" href="https://calendar.app.google/G5mBLu5Wmue2BrTTA" target="_blank" rel="noopener">
-            Book a 30-minute call
+            Book a 30 minute call
             <span class="arrow">→</span>
           </a>
         </div>
@@ -1463,42 +1554,45 @@
         <div>© <span id="yr"></span> · All views are personal and not those of any employer.</div>
       </div>
     </footer>
-
   </div>
 
-<script>
-  // Year
-  document.getElementById('yr').textContent = new Date().getFullYear();
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // Reveal-on-scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
 
-  // Email reveal — backwards string defeats naive scrapers
-  (function () {
-    const btn = document.getElementById('revealBtn');
-    if (!btn) return;
-    btn.addEventListener('click', async function () {
-      const enc = 'moc.liamg@10niessoh.ifas';
-      const addr = enc.split('').reverse().join('');
-      try {
-        await navigator.clipboard.writeText(addr);
-        const original = btn.innerHTML;
-        btn.innerHTML = 'Copied ✓';
-        setTimeout(() => { btn.innerHTML = original; }, 2000);
-      } catch (err) {
-        window.location.href = 'mailto:' + addr;
-      }
-    });
-  })();
-</script>
+    (() => {
+      const button = document.getElementById('revealBtn');
+      if (!button) return;
+
+      button.addEventListener('click', async () => {
+        const encodedAddress = 'moc.liamg@10niessoh.ifas';
+        const emailAddress = encodedAddress.split('').reverse().join('');
+        const originalContent = button.innerHTML;
+
+        try {
+          await navigator.clipboard.writeText(emailAddress);
+          button.innerHTML = 'Copied ✓';
+          setTimeout(() => {
+            button.innerHTML = originalContent;
+          }, 2000);
+        } catch {
+          window.location.href = `mailto:${emailAddress}`;
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
