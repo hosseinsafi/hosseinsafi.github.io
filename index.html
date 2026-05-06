@@ -256,6 +256,188 @@
       border-bottom-color: var(--accent);
     }
 
+
+    /* ─── Hero visual assets ─── */
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 520px;
+      display: grid;
+      align-items: end;
+    }
+
+    .profile-frame {
+      position: relative;
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 18px;
+      box-shadow: 0 28px 70px rgba(20, 23, 28, 0.10);
+      overflow: hidden;
+    }
+
+    .profile-frame::before {
+      content: '';
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(138, 58, 42, 0.18);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .profile-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(0.92) contrast(1.03);
+      background: var(--paper);
+    }
+
+    .asset-missing {
+      display: none;
+      padding: 42px 26px;
+      min-height: 360px;
+      border: 1px dashed var(--rule);
+      background: rgba(255,255,255,0.20);
+      color: var(--ink-mid);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      align-content: center;
+      text-align: center;
+    }
+
+    .visual-chip {
+      position: absolute;
+      left: -42px;
+      bottom: 46px;
+      max-width: 210px;
+      background: rgba(235, 230, 221, 0.92);
+      border: 1px solid var(--rule);
+      padding: 18px 20px;
+      border-radius: 4px;
+      box-shadow: 0 16px 40px rgba(20, 23, 28, 0.10);
+      backdrop-filter: blur(10px);
+    }
+
+    .visual-chip-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .visual-chip-text {
+      font-family: var(--serif);
+      font-size: 1rem;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+
+    .signal-orbit {
+      position: absolute;
+      right: -34px;
+      top: 40px;
+      width: 150px;
+      height: 150px;
+      border: 1px solid rgba(138, 58, 42, 0.22);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .signal-orbit::before,
+    .signal-orbit::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(138, 58, 42, 0.18);
+    }
+
+    .signal-orbit::before { inset: 22px; }
+    .signal-orbit::after { inset: 48px; background: var(--accent); border: none; opacity: 0.92; }
+
+    /* ─── Visual research map ─── */
+    .visuals-intro {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 90px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+
+    .visuals-intro p {
+      color: var(--ink-soft);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .graphics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .graphic-card {
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .graphic-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(20, 23, 28, 0.35);
+      box-shadow: 0 14px 34px rgba(20, 23, 28, 0.08);
+    }
+
+    .graphic-media {
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, rgba(138,58,42,0.08), rgba(20,23,28,0.04));
+      display: grid;
+      place-items: center;
+      border-bottom: 1px solid var(--rule);
+      overflow: hidden;
+    }
+
+    .graphic-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .graphic-media .asset-missing {
+      min-height: auto;
+      height: 100%;
+      width: 100%;
+      padding: 28px 22px;
+      border: none;
+      background: transparent;
+    }
+
+    .graphic-body {
+      padding: 26px 24px 28px;
+    }
+
+    .graphic-body h3 {
+      font-size: 1.2rem;
+      margin-bottom: 9px;
+    }
+
+    .graphic-body p {
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
     .hero-cta-row {
       display: flex;
       gap: 24px;
@@ -789,8 +971,12 @@
     @media (max-width: 960px) {
       .wrap, .topbar-inner { padding-left: 28px; padding-right: 28px; }
       .hero { padding: 80px 0 70px; }
-      .hero-row { grid-template-columns: 1fr; gap: 48px; }
-      .about-grid, .practice-intro, .cap-grid, .contact-layout { grid-template-columns: 1fr; gap: 50px; }
+      .hero-row { grid-template-columns: 1fr; gap: 48px; align-items: start; }
+      .hero-visual { min-height: auto; max-width: 480px; }
+      .visual-chip { left: 18px; bottom: 28px; }
+      .signal-orbit { right: 12px; top: 24px; }
+      .about-grid, .practice-intro, .cap-grid, .contact-layout, .visuals-intro { grid-template-columns: 1fr; gap: 50px; }
+      .graphics-grid { grid-template-columns: 1fr; }
       .exp-layout { grid-template-columns: 1fr; gap: 40px; }
       .exp-aside { position: static; }
       .practice-item { grid-template-columns: 30px 1fr; gap: 18px; }
@@ -807,6 +993,8 @@
       .hero-cta-row { flex-direction: column; align-items: stretch; }
       .btn { justify-content: center; }
       .stat-grid { grid-template-columns: 1fr; }
+      .visual-chip { position: static; max-width: none; margin-top: 14px; }
+      .signal-orbit { display: none; }
       .contact-list li { grid-template-columns: 1fr; gap: 4px; padding: 18px 0; }
     }
 
@@ -823,6 +1011,7 @@
         <a href="#about">About</a>
         <a href="#practice">Practice</a>
         <a href="#capabilities">Capabilities</a>
+        <a href="#visuals">Visuals</a>
         <a href="#experience">Experience</a>
         <a href="#engagements">Engagements</a>
         <a class="topbar-cta" href="#contact">Get in touch →</a>
@@ -848,30 +1037,45 @@
       </h1>
 
       <div class="hero-row reveal">
-        <p class="hero-tagline">
-          I help operators, regulators, and investors make confident decisions in a fast-moving telecoms landscape — combining deep technical insight with clear, executive-ready analysis.
-        </p>
+        <div class="hero-copy">
+          <p class="hero-tagline">
+            I help operators, regulators, and investors make confident decisions in a fast-moving telecoms landscape — combining deep technical insight with clear, executive-ready analysis.
+          </p>
 
-        <div class="hero-card">
-          <div class="hero-card-label">Currently</div>
-          <div class="hero-card-role">Senior Analyst</div>
-          <div class="hero-card-org">
-            <a href="https://real-wireless.com/experts/hossein-safi/" target="_blank" rel="noopener">Real Wireless</a> · since April 2026
+          <div class="hero-card">
+            <div class="hero-card-label">Currently</div>
+            <div class="hero-card-role">Senior Analyst</div>
+            <div class="hero-card-org">
+              <a href="https://real-wireless.com/experts/hossein-safi/" target="_blank" rel="noopener">Real Wireless</a> · since April 2026
+            </div>
+          </div>
+
+          <div class="hero-cta-row">
+            <a class="btn btn-primary" href="https://calendar.app.google/G5mBLu5Wmue2BrTTA" target="_blank" rel="noopener">
+              Book an introductory call
+              <span class="arrow">→</span>
+            </a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/hossein-safi-66674680/" target="_blank" rel="noopener">
+              LinkedIn
+            </a>
+            <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=G-j2JCAAAAAJ&hl=en" target="_blank" rel="noopener">
+              Publications
+            </a>
           </div>
         </div>
-      </div>
 
-      <div class="hero-cta-row reveal">
-        <a class="btn btn-primary" href="https://calendar.app.google/G5mBLu5Wmue2BrTTA" target="_blank" rel="noopener">
-          Book an introductory call
-          <span class="arrow">→</span>
-        </a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/hossein-safi-66674680/" target="_blank" rel="noopener">
-          LinkedIn
-        </a>
-        <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=G-j2JCAAAAAJ&hl=en" target="_blank" rel="noopener">
-          Publications
-        </a>
+        <div class="hero-visual" aria-label="Profile photo and communication systems visual motif">
+          <!-- Replace assets/profile-photo.jpg with the exact name of your photo in the assets folder. Recommended crop: vertical portrait, 4:5 ratio, at least 1200 px high. -->
+          <div class="profile-frame">
+            <img class="profile-photo" src="assets/profile-photo.jpg" alt="Portrait of Hossein Safi" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+            <div class="asset-missing">Profile photo placeholder. Upload your portrait to the assets folder and update this path if needed.</div>
+          </div>
+          <div class="signal-orbit" aria-hidden="true"></div>
+          <div class="visual-chip">
+            <div class="visual-chip-label">Focus</div>
+            <div class="visual-chip-text">6G, NTN, optical wireless, AI-enabled networks, and telecom techno-economics.</div>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -1018,9 +1222,58 @@
       </div>
     </section>
 
+
+    <!-- VISUALS -->
+    <section id="visuals">
+      <div class="section-eyebrow"><span class="num">04</span> Visual identity <span></span></div>
+
+      <div class="visuals-intro">
+        <h2 class="reveal">Graphics that connect the page to <em>your technical domain.</em></h2>
+        <p class="reveal">These cards use local image placeholders so the page remains easy to maintain. Generate the graphics using the prompts in the HTML comments below, save them in the assets folder with the specified names, and the page will display them automatically.</p>
+      </div>
+
+      <div class="graphics-grid">
+        <article class="graphic-card reveal">
+          <div class="graphic-media">
+            <!-- AI image prompt for assets/owc_graphic.png: Create a refined editorial technical illustration of indoor optical wireless communication using VCSEL array beams, grid of beams coverage, warm paper background, subtle terracotta accents, clean line art, minimal premium academic website style, no text, no logos. -->
+            <img src="assets/owc_graphic.png" alt="Optical wireless communication and VCSEL beam coverage graphic" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+            <div class="asset-missing">Upload assets/owc_graphic.png</div>
+          </div>
+          <div class="graphic-body">
+            <h3>Optical wireless systems</h3>
+            <p>VCSEL arrays, LiFi, beam shaping, and hybrid RF optical architectures for dense indoor connectivity.</p>
+          </div>
+        </article>
+
+        <article class="graphic-card reveal">
+          <div class="graphic-media">
+            <!-- AI image prompt for assets/6g_network_graphic.png: Create a minimal 6G network architecture illustration showing terrestrial cells, satellite connectivity, edge AI nodes, and multi access orchestration, warm neutral background, fine technical lines, terracotta and dark ink accents, professional consulting website style, no text, no logos. -->
+            <img src="assets/6g_network_graphic.png" alt="6G terrestrial and non terrestrial network architecture graphic" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+            <div class="asset-missing">Upload assets/6g_network_graphic.png</div>
+          </div>
+          <div class="graphic-body">
+            <h3>6G and NTN strategy</h3>
+            <p>Multi access networks, satellite integration, resilience, coverage economics, and future network planning.</p>
+          </div>
+        </article>
+
+        <article class="graphic-card reveal">
+          <div class="graphic-media">
+            <!-- AI image prompt for assets/analytics_graphic.png: Create a clean abstract telecom techno economic analysis visual with network cost curves, demand scenarios, coverage layers, and decision dashboards, elegant editorial style, warm paper texture, terracotta accent, dark ink lines, no text, no logos. -->
+            <img src="assets/analytics_graphic.png" alt="Telecom techno economic analysis and demand modelling graphic" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+            <div class="asset-missing">Upload assets/analytics_graphic.png</div>
+          </div>
+          <div class="graphic-body">
+            <h3>Techno economic analysis</h3>
+            <p>Scenario modelling, demand forecasting, investment cases, and evidence led strategic recommendations.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <!-- EXPERIENCE -->
     <section id="experience">
-      <div class="section-eyebrow"><span class="num">04</span> Experience <span></span></div>
+      <div class="section-eyebrow"><span class="num">05</span> Experience <span></span></div>
 
       <div class="exp-layout">
         <aside class="exp-aside reveal">
@@ -1130,7 +1383,7 @@
 
     <!-- ENGAGEMENTS -->
     <section id="engagements">
-      <div class="section-eyebrow"><span class="num">05</span> Flagship engagements <span></span></div>
+      <div class="section-eyebrow"><span class="num">06</span> Flagship engagements <span></span></div>
 
       <h2 class="reveal" style="margin-bottom:50px;">Selected programmes <em>I've helped shape.</em></h2>
 
@@ -1161,7 +1414,7 @@
 
     <!-- CONTACT -->
     <section id="contact" class="contact-section">
-      <div class="section-eyebrow"><span class="num">06</span> Contact <span></span></div>
+      <div class="section-eyebrow"><span class="num">07</span> Contact <span></span></div>
 
       <div class="contact-layout">
         <div class="reveal">
