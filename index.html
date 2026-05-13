@@ -20,7 +20,7 @@
        TOKENS
        ============================================================ */
     :root {
-      /* Palette, warm paper, deep ink, terracotta accent */
+      /* Palette: warm paper, deep ink, terracotta accent */
       --paper: #f4f1ec;
       --paper-warm: #ece6db;
       --paper-deep: #e2dccf;
@@ -423,7 +423,181 @@
     .btn:hover .arrow { transform: translateX(3px); }
 
     /* ============================================================
-       AI BRIEF, "Profile" section as a refined model card / brief
+       LLM CHAT: user prompt + "thinking" indicator above the brief
+       ============================================================ */
+    .chat {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    .chat-prompt {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      max-width: 720px;
+    }
+
+    .chat-avatar {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      display: grid;
+      place-items: center;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--ink-mid);
+      margin-top: 2px;
+    }
+    .chat-avatar.you { color: var(--accent); border-color: var(--accent-line); }
+
+    .chat-bubble {
+      position: relative;
+      padding: 14px 20px;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 4px 14px 14px 14px;
+      font-family: var(--serif);
+      font-size: 1.18rem;
+      line-height: 1.45;
+      color: var(--ink);
+      letter-spacing: -0.005em;
+      min-height: 1em;
+    }
+    .chat-bubble::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -1px;
+      width: 2px;
+      height: 100%;
+      background: var(--accent);
+      opacity: 0.55;
+      border-radius: 2px 0 0 2px;
+    }
+    .chat-bubble .label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 4px;
+    }
+    .chat-bubble .typed {
+      display: inline;
+      white-space: pre-wrap;
+    }
+    .chat-bubble .caret {
+      display: inline-block;
+      width: 2px;
+      height: 1.05em;
+      background: var(--accent);
+      vertical-align: -2px;
+      margin-left: 2px;
+      animation: caretBlink 0.95s steps(2, jump-none) infinite;
+      opacity: 0;
+    }
+    .chat-bubble.is-typing .caret,
+    .chat-bubble.is-done .caret { opacity: 1; }
+    .chat-bubble.is-done .caret { animation: caretBlink 1.4s steps(2, jump-none) infinite; }
+    @keyframes caretBlink { 50% { opacity: 0; } }
+
+    /* "Thinking" three-dot indicator shown briefly between prompt and answer */
+    .chat-thinking {
+      display: none;
+      align-items: center;
+      gap: 14px;
+      max-width: 720px;
+    }
+    .chat-thinking.is-on { display: flex; }
+    .chat-thinking .dots {
+      display: inline-flex;
+      gap: 6px;
+      padding: 12px 18px;
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+    }
+    .chat-thinking .dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.35;
+      animation: thinking 1.2s ease-in-out infinite;
+    }
+    .chat-thinking .dots span:nth-child(2) { animation-delay: 0.15s; }
+    .chat-thinking .dots span:nth-child(3) { animation-delay: 0.30s; }
+    @keyframes thinking {
+      0%, 80%, 100% { opacity: 0.3; transform: scale(0.85); }
+      40% { opacity: 1; transform: scale(1); }
+    }
+    .chat-thinking .meta {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    /* Answer reveal: the .brief becomes the LLM response.
+       Default (no-JS / reduced-motion / after animation) is fully visible. */
+    .chat-answer {
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    /* Only when the section is JS-driven AND has not yet been revealed,
+       the answer starts hidden and rows are staggered in. */
+    .profile-llm.is-animated .chat-answer:not(.is-revealed) {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    .profile-llm.is-animated .chat-answer:not(.is-revealed) .brief-line,
+    .profile-llm.is-animated .chat-answer:not(.is-revealed) .brief-summary,
+    .profile-llm.is-animated .chat-answer:not(.is-revealed) .brief-footer {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    .chat-answer .brief-line,
+    .chat-answer .brief-summary,
+    .chat-answer .brief-footer {
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .chat-answer.is-revealed .brief-line,
+    .chat-answer.is-revealed .brief-summary,
+    .chat-answer.is-revealed .brief-footer {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .chat-bubble .caret,
+      .chat-thinking .dots span { animation: none; }
+      .chat-answer,
+      .chat-answer .brief-line,
+      .chat-answer .brief-summary,
+      .chat-answer .brief-footer {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .chat-bubble { font-size: 1.05rem; padding: 12px 16px; }
+      .chat-avatar { width: 28px; height: 28px; font-size: 0.62rem; }
+    }
+
+    /* ============================================================
+       AI BRIEF: "Profile" section as a refined model card / brief
        ============================================================ */
     .brief {
       background: var(--paper-warm);
@@ -1153,12 +1327,30 @@
     </header>
 
     <!-- ============================================================
-         PROFILE, AI-style brief
+         PROFILE: LLM-style chat, prompt to thinking to brief as answer
          ============================================================ -->
-    <section id="profile">
+    <section id="profile" class="profile-llm">
       <div class="section-eyebrow"><span class="num">01</span> Profile</div>
 
-      <article class="brief reveal" aria-label="Profile brief">
+      <div class="chat">
+        <!-- User prompt -->
+        <div class="chat-prompt reveal" role="group" aria-label="Visitor prompt">
+          <div class="chat-avatar you" aria-hidden="true">YOU</div>
+          <div class="chat-bubble" id="chatBubble" aria-live="polite">
+            <span class="label">Prompt</span>
+            <span class="typed" id="typedText">Who is Hossein Safi?</span><span class="caret" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <!-- Thinking indicator (shown briefly between prompt and answer) -->
+        <div class="chat-thinking" id="chatThinking" aria-hidden="true">
+          <div class="chat-avatar" aria-hidden="true">HS</div>
+          <div class="dots"><span></span><span></span><span></span></div>
+          <span class="meta">composing brief</span>
+        </div>
+      </div>
+
+      <article class="brief chat-answer" id="chatAnswer" aria-label="Profile brief, generated answer">
         <header class="brief-header">
           <div class="left">
             <span class="glyph" aria-hidden="true"></span>
@@ -1173,7 +1365,7 @@
         <div class="brief-body">
           <div class="brief-line">
             <span class="key">Identity</span>
-            <span class="val">Hossein Safi <em>, PhD, Telecommunications Engineering · MIEEE · AFHEA</em></span>
+            <span class="val">Hossein Safi<em>, PhD, Telecommunications Engineering · MIEEE · AFHEA</em></span>
           </div>
           <div class="brief-line">
             <span class="key">Role</span>
@@ -1649,6 +1841,82 @@
           window.location.href = `mailto:${email}`;
         }
       });
+    })();
+
+    // ============================================================
+    // LLM CHAT: one-time, scroll-triggered prompt + answer reveal
+    // ============================================================
+    (() => {
+      const section  = document.getElementById('profile');
+      const bubble   = document.getElementById('chatBubble');
+      const typedEl  = document.getElementById('typedText');
+      const thinking = document.getElementById('chatThinking');
+      const answer   = document.getElementById('chatAnswer');
+      if (!section || !bubble || !typedEl || !thinking || !answer) return;
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const fullQuestion = typedEl.textContent;
+
+      // Reduced motion → skip the animation entirely, leave final state.
+      if (prefersReduced) {
+        bubble.classList.add('is-done');
+        answer.classList.add('is-revealed');
+        return;
+      }
+
+      // Mark section as JS-animated so the answer starts hidden.
+      section.classList.add('is-animated');
+
+      // Stage rows for the staggered reveal.
+      const rows = answer.querySelectorAll('.brief-line, .brief-summary, .brief-footer');
+      rows.forEach((row, i) => { row.style.transitionDelay = `${i * 70}ms`; });
+
+      // Start with the question text cleared; we type it in.
+      typedEl.textContent = '';
+      bubble.classList.add('is-typing');
+
+      const typeQuestion = () => new Promise((resolve) => {
+        const chars = Array.from(fullQuestion);
+        let i = 0;
+        const baseDelay = 38;
+        const jitter = 32;
+        const tick = () => {
+          if (i >= chars.length) return resolve();
+          typedEl.textContent += chars[i];
+          i++;
+          setTimeout(tick, baseDelay + Math.random() * jitter);
+        };
+        tick();
+      });
+
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
+      const runSequence = async () => {
+        await typeQuestion();
+        bubble.classList.remove('is-typing');
+        bubble.classList.add('is-done');
+
+        await wait(280);
+        thinking.classList.add('is-on');
+        thinking.setAttribute('aria-hidden', 'false');
+        await wait(900);
+
+        thinking.classList.remove('is-on');
+        thinking.setAttribute('aria-hidden', 'true');
+        answer.classList.add('is-revealed');
+      };
+
+      // Trigger on first scroll into view, once.
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            obs.disconnect();
+            runSequence();
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+
+      observer.observe(section);
     })();
   </script>
 </body>
