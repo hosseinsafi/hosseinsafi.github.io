@@ -3,37 +3,54 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hossein Safi | Senior Analyst, Real Wireless</title>
-  <meta name="description" content="Hossein Safi, Senior Analyst at Real Wireless. Telecoms strategy, regulation, and techno-economic analysis across mobile, non-terrestrial networks, and digital infrastructure." />
+  <title>Hossein Safi — Senior Analyst, Real Wireless</title>
+  <meta name="description" content="Hossein Safi — Senior Analyst at Real Wireless. Telecoms strategy, techno-economic analysis, and advisory across 5G/6G, non-terrestrial networks, optical wireless, and AI-enabled communications." />
+  <meta name="author" content="Hossein Safi" />
+
+  <meta property="og:title" content="Hossein Safi — Senior Analyst, Real Wireless" />
+  <meta property="og:description" content="Telecoms strategy, techno-economic analysis, and advisory across 5G/6G, non-terrestrial networks, optical wireless, and AI-enabled communications." />
+  <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
+    /* ============================================================
+       TOKENS
+       ============================================================ */
     :root {
+      /* Palette — warm paper, deep ink, terracotta accent */
       --paper: #f4f1ec;
-      --paper-warm: #ebe6dd;
+      --paper-warm: #ece6db;
+      --paper-deep: #e2dccf;
       --ink: #14171c;
       --ink-soft: #2a2e36;
       --ink-mid: #5a5e66;
+      --ink-faint: #8b8e94;
       --rule: rgba(20, 23, 28, 0.10);
       --rule-soft: rgba(20, 23, 28, 0.06);
       --accent: #8a3a2a;
+      --accent-soft: rgba(138, 58, 42, 0.10);
+      --accent-line: rgba(138, 58, 42, 0.22);
+
+      /* Type */
       --serif: 'Fraunces', 'Times New Roman', Georgia, serif;
       --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+      /* Rhythm */
+      --max: 1180px;
+      --gutter: 40px;
+      --section-pad: 110px;
+      --radius: 6px;
     }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: var(--sans);
       background: var(--paper);
@@ -45,7 +62,11 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    button { font: inherit; cursor: pointer; }
 
+    /* Paper grain */
     body::before {
       content: '';
       position: fixed;
@@ -56,18 +77,73 @@
       mix-blend-mode: multiply;
     }
 
-    a {
-      color: inherit;
-    }
+    ::selection { background: var(--accent); color: var(--paper); }
 
+    /* ============================================================
+       LAYOUT PRIMITIVES
+       ============================================================ */
     .wrap {
       position: relative;
       z-index: 1;
-      max-width: 1180px;
+      max-width: var(--max);
       margin: 0 auto;
-      padding: 0 40px;
+      padding: 0 var(--gutter);
     }
 
+    section {
+      padding: var(--section-pad) 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .section-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-bottom: 44px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .section-eyebrow .num {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+      letter-spacing: 0;
+      font-size: 0.95rem;
+    }
+    .section-eyebrow::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    /* ============================================================
+       TYPOGRAPHY
+       ============================================================ */
+    h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; color: var(--ink); }
+    h1 em, h2 em, h3 em { font-style: italic; font-weight: 300; color: var(--ink-soft); }
+    h1 .accent, h2 .accent { color: var(--accent); font-style: italic; }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 22ch;
+    }
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+
+    /* ============================================================
+       TOPBAR
+       ============================================================ */
     .topbar {
       position: sticky;
       top: 0;
@@ -77,25 +153,21 @@
       backdrop-filter: blur(14px) saturate(1.2);
       border-bottom: 1px solid var(--rule-soft);
     }
-
     .topbar-inner {
-      max-width: 1180px;
+      max-width: var(--max);
       margin: 0 auto;
-      padding: 22px 40px;
+      padding: 22px var(--gutter);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
     }
-
     .topbar-brand {
       font-family: var(--serif);
       font-size: 1.05rem;
       font-weight: 500;
       letter-spacing: -0.01em;
-      color: var(--ink);
     }
-
     .topbar-brand .dot {
       display: inline-block;
       width: 5px;
@@ -105,26 +177,15 @@
       vertical-align: middle;
       margin: 0 8px 3px 0;
     }
-
-    .topbar-nav {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-    }
-
+    .topbar-nav { display: flex; gap: 28px; align-items: center; }
     .topbar-nav a {
       color: var(--ink-mid);
       text-decoration: none;
       font-size: 0.82rem;
-      font-weight: 400;
       letter-spacing: 0.01em;
       transition: color 0.2s ease;
     }
-
-    .topbar-nav a:hover {
-      color: var(--ink);
-    }
-
+    .topbar-nav a:hover { color: var(--ink); }
     .topbar-cta {
       font-size: 0.82rem;
       color: var(--ink);
@@ -132,56 +193,53 @@
       padding: 9px 18px;
       border: 1px solid var(--ink);
       border-radius: 999px;
-      transition: all 0.2s ease;
       font-weight: 500;
+      transition: all 0.2s ease;
     }
+    .topbar-cta:hover { background: var(--ink); color: var(--paper); }
 
-    .topbar-cta:hover {
-      background: var(--ink);
-      color: var(--paper);
-    }
-
+    /* ============================================================
+       REVEAL
+       ============================================================ */
     .reveal {
       opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
+      transform: translateY(16px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
     }
 
-    .reveal.in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .hero {
-      padding: 120px 0 100px;
-      position: relative;
-    }
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero { padding: 110px 0 90px; }
 
     .hero-meta {
       display: flex;
       align-items: center;
       gap: 14px;
-      font-size: 0.78rem;
+      font-family: var(--mono);
+      font-size: 0.74rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--ink-mid);
-      margin-bottom: 56px;
+      margin-bottom: 48px;
     }
-
     .hero-meta::before {
       content: '';
       width: 28px;
       height: 1px;
       background: var(--ink-mid);
     }
-
     .hero-meta .live {
       display: inline-flex;
       align-items: center;
       gap: 7px;
       color: var(--accent);
     }
-
     .hero-meta .live::before {
       content: '';
       width: 6px;
@@ -190,39 +248,17 @@
       border-radius: 50%;
       animation: pulse 2.4s ease-in-out infinite;
     }
-
     @keyframes pulse {
-      0%, 100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-      50% {
-        opacity: 0.4;
-        transform: scale(0.85);
-      }
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
     }
 
     h1.hero-headline {
-      font-family: var(--serif);
       font-size: clamp(2.6rem, 6.4vw, 5.4rem);
-      font-weight: 400;
       line-height: 1.04;
       letter-spacing: -0.025em;
-      color: var(--ink);
       max-width: 18ch;
       margin-bottom: 56px;
-    }
-
-    h1.hero-headline em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--ink-soft);
-    }
-
-    h1.hero-headline .accent {
-      color: var(--accent);
-      font-style: italic;
-      font-weight: 400;
     }
 
     .hero-row {
@@ -231,18 +267,12 @@
       gap: 80px;
       align-items: end;
     }
-
-    .hero-copy {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
+    .hero-copy { display: flex; flex-direction: column; align-items: flex-start; }
     .hero-tagline {
       font-size: 1.05rem;
       color: var(--ink-soft);
       line-height: 1.65;
-      max-width: 38ch;
+      max-width: 40ch;
     }
 
     .hero-card {
@@ -255,37 +285,26 @@
       width: 100%;
       max-width: 380px;
     }
-
     .hero-card-label {
-      font-size: 0.72rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--ink-mid);
     }
-
     .hero-card-role {
       font-family: var(--serif);
       font-size: 1.35rem;
       font-weight: 500;
       letter-spacing: -0.01em;
-      color: var(--ink);
     }
-
-    .hero-card-org {
-      font-size: 0.92rem;
-      color: var(--ink-mid);
-    }
-
+    .hero-card-org { font-size: 0.92rem; color: var(--ink-mid); }
     .hero-card-org a {
       text-decoration: none;
       border-bottom: 1px solid var(--rule);
       transition: border-color 0.2s ease, color 0.2s ease;
     }
-
-    .hero-card-org a:hover {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
+    .hero-card-org a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
     .hero-visual {
       position: relative;
@@ -293,28 +312,24 @@
       display: grid;
       align-items: end;
     }
-
     .profile-frame {
       position: relative;
       background: var(--paper-warm);
       border: 1px solid var(--rule);
-      border-radius: 6px;
+      border-radius: var(--radius);
       padding: 18px;
       box-shadow: 0 28px 70px rgba(20, 23, 28, 0.10);
       overflow: hidden;
     }
-
     .profile-frame::before {
       content: '';
       position: absolute;
       inset: 18px;
-      border: 1px solid rgba(138, 58, 42, 0.18);
+      border: 1px solid var(--accent-line);
       pointer-events: none;
       z-index: 2;
     }
-
     .profile-photo {
-      display: block;
       width: 100%;
       aspect-ratio: 4 / 5;
       object-fit: cover;
@@ -322,33 +337,30 @@
       filter: saturate(0.92) contrast(1.03);
       background: var(--paper);
     }
-
     .visual-chip {
       position: absolute;
       left: -42px;
       bottom: 46px;
-      max-width: 210px;
-      background: rgba(235, 230, 221, 0.92);
+      max-width: 220px;
+      background: rgba(236, 230, 219, 0.94);
       border: 1px solid var(--rule);
       padding: 18px 20px;
       border-radius: 4px;
       box-shadow: 0 16px 40px rgba(20, 23, 28, 0.10);
       backdrop-filter: blur(10px);
     }
-
     .visual-chip-label {
-      font-size: 0.68rem;
+      font-family: var(--mono);
+      font-size: 0.66rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 8px;
     }
-
     .visual-chip-text {
       font-family: var(--serif);
       font-size: 1rem;
       line-height: 1.35;
-      color: var(--ink);
     }
 
     .signal-orbit {
@@ -357,187 +369,228 @@
       top: 40px;
       width: 150px;
       height: 150px;
-      border: 1px solid rgba(138, 58, 42, 0.22);
+      border: 1px solid var(--accent-line);
       border-radius: 50%;
       pointer-events: none;
     }
-
     .signal-orbit::before,
     .signal-orbit::after {
       content: '';
       position: absolute;
       border-radius: 50%;
-      border: 1px solid rgba(138, 58, 42, 0.18);
     }
-
     .signal-orbit::before {
       inset: 22px;
+      border: 1px solid rgba(138, 58, 42, 0.18);
     }
-
     .signal-orbit::after {
       inset: 48px;
       background: var(--accent);
-      border: none;
       opacity: 0.92;
     }
 
     .hero-cta-row {
       display: flex;
-      gap: 24px;
-      margin-top: 64px;
+      gap: 18px;
+      margin-top: 56px;
       flex-wrap: wrap;
       align-items: center;
     }
 
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       padding: 14px 26px;
       border-radius: 999px;
-      font-family: var(--sans);
       font-size: 0.88rem;
       font-weight: 500;
       letter-spacing: 0.01em;
       text-decoration: none;
       transition: all 0.25s ease;
-      cursor: pointer;
       border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background: var(--ink);
-      color: var(--paper);
-    }
-
-    .btn-primary:hover {
-      background: var(--accent);
-      transform: translateY(-1px);
-    }
-
-    .btn-ghost {
       background: transparent;
       color: var(--ink);
-      border-color: var(--ink);
     }
+    .btn-primary { background: var(--ink); color: var(--paper); }
+    .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+    .btn-ghost { border-color: var(--ink); }
+    .btn-ghost:hover { background: var(--ink); color: var(--paper); transform: translateY(-1px); }
+    .btn .arrow { transition: transform 0.25s ease; }
+    .btn:hover .arrow { transform: translateX(3px); }
 
-    .btn-ghost:hover {
-      background: var(--ink);
-      color: var(--paper);
-      transform: translateY(-1px);
+    /* ============================================================
+       AI BRIEF — "Profile" section as a refined model card / brief
+       ============================================================ */
+    .brief {
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 22px 60px rgba(20, 23, 28, 0.06);
     }
-
-    .btn .arrow {
-      transition: transform 0.25s ease;
-    }
-
-    .btn:hover .arrow {
-      transform: translateX(3px);
-    }
-
-    section {
-      padding: 110px 0;
-      border-top: 1px solid var(--rule);
-    }
-
-    .section-eyebrow {
-      font-size: 0.74rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--ink-mid);
-      margin-bottom: 44px;
+    .brief-header {
       display: flex;
       align-items: center;
-      gap: 14px;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 22px;
+      background: var(--paper-deep);
+      border-bottom: 1px solid var(--rule);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--ink-mid);
+      letter-spacing: 0.06em;
     }
-
-    .section-eyebrow .num {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 400;
-      color: var(--accent);
-      letter-spacing: 0;
+    .brief-header .left { display: flex; align-items: center; gap: 12px; }
+    .brief-header .glyph {
+      width: 18px; height: 18px;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      position: relative;
+      flex-shrink: 0;
     }
-
-    .section-eyebrow::after {
+    .brief-header .glyph::before {
       content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--rule);
+      position: absolute;
+      inset: 4px;
+      border: 1px solid var(--accent-line);
+      border-radius: 50%;
+    }
+    .brief-header .glyph::after {
+      content: '';
+      position: absolute;
+      inset: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+    .brief-header .right { display: flex; align-items: center; gap: 14px; }
+    .brief-header .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent);
+    }
+    .brief-header .status::before {
+      content: '';
+      width: 5px; height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
     }
 
-    h2 {
+    .brief-body { padding: 38px 44px 44px; }
+
+    .brief-line {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 28px;
+      padding: 14px 0;
+      border-bottom: 1px dashed var(--rule);
+      align-items: baseline;
+    }
+    .brief-line:last-child { border-bottom: none; }
+    .brief-line .key {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+    }
+    .brief-line .val {
       font-family: var(--serif);
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+      font-size: 1.08rem;
       color: var(--ink);
-      max-width: 22ch;
+      line-height: 1.55;
     }
-
-    h2 em {
+    .brief-line .val em {
       font-style: italic;
-      font-weight: 300;
       color: var(--ink-soft);
     }
-
-    h2 .accent {
+    .brief-line .val .pill {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
       color: var(--accent);
-      font-style: italic;
+      margin-right: 6px;
+      margin-bottom: 4px;
     }
 
-    h3 {
+    .brief-summary {
+      margin-top: 28px;
+      padding: 24px 26px;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-left: 2px solid var(--accent);
+      border-radius: 4px;
       font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      color: var(--ink);
+      font-size: 1.18rem;
+      line-height: 1.55;
+      color: var(--ink-soft);
+    }
+    .brief-summary::before {
+      content: 'Executive summary';
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
       margin-bottom: 10px;
     }
+    .brief-summary em { font-style: italic; color: var(--accent); }
 
-    .about-grid,
-    .practice-intro,
-    .visuals-intro,
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 100px;
-      align-items: start;
+    .brief-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 22px;
+      border-top: 1px solid var(--rule);
+      background: rgba(20, 23, 28, 0.025);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.06em;
+      flex-wrap: wrap;
     }
+    .brief-footer .caret {
+      display: inline-block;
+      width: 8px; height: 14px;
+      background: var(--accent);
+      margin-left: 4px;
+      vertical-align: -2px;
+      animation: blink 1.1s steps(2, jump-none) infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
 
+    /* ============================================================
+       ABOUT (sits under the brief)
+       ============================================================ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 90px;
+      align-items: start;
+      margin-top: 80px;
+    }
     .about-lead {
       font-family: var(--serif);
-      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      font-size: clamp(1.45rem, 2.3vw, 1.9rem);
       font-weight: 400;
       line-height: 1.35;
       letter-spacing: -0.015em;
-      color: var(--ink);
-      margin-bottom: 36px;
+      margin-bottom: 32px;
     }
-
-    .about-lead em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .about-body,
-    .practice-intro-text,
-    .visuals-intro p,
-    .contact-sub,
-    .exp-aside p {
-      color: var(--ink-soft);
-      font-size: 0.98rem;
-      line-height: 1.75;
-    }
-
-    .about-body p + p {
-      margin-top: 16px;
-    }
-
-    .about-side {
-      padding-top: 18px;
-    }
+    .about-lead em { font-style: italic; color: var(--accent); }
+    .about-body p { color: var(--ink-soft); font-size: 0.98rem; line-height: 1.75; }
+    .about-body p + p { margin-top: 16px; }
 
     .stat-grid {
       display: grid;
@@ -548,61 +601,52 @@
       border-radius: 4px;
       overflow: hidden;
     }
-
     .stat {
       background: var(--paper-warm);
       padding: 28px 26px;
     }
-
     .stat-num {
       font-family: var(--serif);
-      font-size: 2.6rem;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      color: var(--ink);
+      font-size: 2.4rem;
       line-height: 1;
+      letter-spacing: -0.02em;
       margin-bottom: 10px;
     }
+    .stat-num em { font-style: italic; color: var(--accent); }
+    .stat-label { font-size: 0.82rem; color: var(--ink-mid); line-height: 1.5; }
 
-    .stat-num em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .stat-label {
-      font-size: 0.82rem;
-      color: var(--ink-mid);
-      line-height: 1.5;
-    }
-
+    /* ============================================================
+       PRACTICE
+       ============================================================ */
     .practice-intro,
     .visuals-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
       align-items: end;
-      margin-bottom: 70px;
+      margin-bottom: 64px;
     }
+    .practice-intro-text,
+    .visuals-intro p { color: var(--ink-soft); font-size: 0.98rem; line-height: 1.75; }
 
     .practice-list,
-    .timeline {
-      border-top: 1px solid var(--ink);
-    }
+    .timeline { border-top: 1px solid var(--ink); }
 
     .practice-item {
       display: grid;
       grid-template-columns: 60px 1fr 1.6fr;
       gap: 40px;
-      padding: 38px 0;
+      padding: 36px 0;
       border-bottom: 1px solid var(--rule);
-      transition: background 0.3s ease;
       align-items: start;
+      transition: background 0.3s ease;
     }
-
     .practice-item:hover {
       background: var(--paper-warm);
       margin: 0 -16px;
       padding-left: 16px;
       padding-right: 16px;
     }
-
     .practice-num {
       font-family: var(--serif);
       font-style: italic;
@@ -610,37 +654,22 @@
       color: var(--accent);
       padding-top: 4px;
     }
-
     .practice-title {
       font-family: var(--serif);
-      font-size: 1.5rem;
-      font-weight: 400;
+      font-size: 1.4rem;
       letter-spacing: -0.015em;
       line-height: 1.2;
-      color: var(--ink);
     }
-
-    .practice-desc {
-      color: var(--ink-soft);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-
-    .practice-desc ul,
-    .eng-card ul,
-    .role-body,
-    .cap-list,
-    .contact-list {
+    .practice-desc { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.7; }
+    .practice-desc ul, .role-body, .cap-list, .contact-list, .eng-card ul {
       list-style: none;
-      padding: 0;
     }
-
     .practice-desc li {
       padding: 4px 0 4px 18px;
       position: relative;
     }
-
     .practice-desc li::before,
+    .role-body li::before,
     .eng-card li::before {
       content: '';
       position: absolute;
@@ -649,33 +678,28 @@
       height: 1px;
       background: var(--accent);
     }
+    .practice-desc li::before { top: 18px; }
 
-    .practice-desc li::before {
-      top: 18px;
-    }
-
+    /* ============================================================
+       CAPABILITIES
+       ============================================================ */
     .cap-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      gap: 70px;
     }
-
     .cap-col h4 {
-      font-family: var(--sans);
-      font-size: 0.74rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--ink-mid);
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       padding-bottom: 14px;
       border-bottom: 1px solid var(--rule);
     }
-
-    .cap-list {
-      margin-bottom: 36px;
-    }
-
+    .cap-list { margin-bottom: 30px; }
     .cap-list li {
       padding: 13px 0;
       border-bottom: 1px solid var(--rule-soft);
@@ -686,50 +710,35 @@
       color: var(--ink-soft);
       line-height: 1.55;
     }
-
-    .cap-list li:last-child {
-      border-bottom: none;
-    }
-
+    .cap-list li:last-child { border-bottom: none; }
     .cap-list .key {
       font-family: var(--serif);
       font-style: italic;
-      font-weight: 400;
       color: var(--ink);
       flex-shrink: 0;
       width: 110px;
       font-size: 0.95rem;
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 14px;
-    }
-
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
     .tag {
       font-size: 0.78rem;
-      font-weight: 400;
       color: var(--ink-mid);
       border: 1px solid var(--rule);
       padding: 6px 14px;
       border-radius: 999px;
-      letter-spacing: 0.01em;
       transition: all 0.2s ease;
     }
+    .tag:hover { border-color: var(--ink); color: var(--ink); }
 
-    .tag:hover {
-      border-color: var(--ink);
-      color: var(--ink);
-    }
-
+    /* ============================================================
+       VISUAL IDENTITY
+       ============================================================ */
     .graphics-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
     }
-
     .graphic-card {
       background: var(--paper-warm);
       border: 1px solid var(--rule);
@@ -737,13 +746,11 @@
       overflow: hidden;
       transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
-
     .graphic-card:hover {
       transform: translateY(-3px);
       border-color: rgba(20, 23, 28, 0.35);
       box-shadow: 0 14px 34px rgba(20, 23, 28, 0.08);
     }
-
     .graphic-media {
       aspect-ratio: 4 / 3;
       background: linear-gradient(135deg, rgba(138, 58, 42, 0.08), rgba(20, 23, 28, 0.04));
@@ -752,54 +759,95 @@
       border-bottom: 1px solid var(--rule);
       overflow: hidden;
     }
-
     .graphic-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+    }
+    .graphic-body { padding: 24px 24px 26px; }
+    .graphic-body h3 { font-size: 1.18rem; margin-bottom: 8px; }
+    .graphic-body p { color: var(--ink-soft); font-size: 0.9rem; line-height: 1.65; }
+
+    /* ============================================================
+       TRAJECTORY (new — replaces nothing; complements experience)
+       ============================================================ */
+    .trajectory {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--paper-warm);
+    }
+    .traj-step {
+      padding: 36px 32px;
+      border-right: 1px solid var(--rule);
+      position: relative;
+    }
+    .traj-step:last-child { border-right: none; }
+    .traj-step .marker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-bottom: 20px;
+    }
+    .traj-step .marker .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--rule);
+      border: 1px solid var(--ink-faint);
+    }
+    .traj-step.is-now .marker { color: var(--accent); }
+    .traj-step.is-now .marker .dot { background: var(--accent); border-color: var(--accent); }
+    .traj-step h3 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      letter-spacing: -0.015em;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    .traj-step h3 em { font-style: italic; color: var(--ink-soft); font-weight: 300; }
+    .traj-step p { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.65; }
+    .traj-step .horizon {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-top: 18px;
     }
 
-    .graphic-body {
-      padding: 26px 24px 28px;
-    }
-
-    .graphic-body h3 {
-      font-size: 1.2rem;
-      margin-bottom: 9px;
-    }
-
-    .graphic-body p {
-      color: var(--ink-soft);
-      font-size: 0.9rem;
-      line-height: 1.65;
-    }
-
+    /* ============================================================
+       EXPERIENCE
+       ============================================================ */
     .exp-layout {
       display: grid;
       grid-template-columns: 280px 1fr;
       gap: 100px;
     }
-
-    .exp-aside {
-      position: sticky;
-      top: 110px;
-      align-self: start;
-    }
-
+    .exp-aside { position: sticky; top: 110px; align-self: start; }
+    .exp-aside h2 { font-size: 1.9rem; }
     .exp-aside p {
       margin-top: 18px;
+      color: var(--ink-soft);
+      font-size: 0.98rem;
+      line-height: 1.75;
     }
 
     .role {
       display: grid;
       grid-template-columns: 130px 1fr;
       gap: 40px;
-      padding: 38px 0;
+      padding: 36px 0;
       border-bottom: 1px solid var(--rule);
       align-items: start;
     }
-
     .role-date {
       font-family: var(--serif);
       font-size: 0.92rem;
@@ -808,7 +856,6 @@
       padding-top: 4px;
       line-height: 1.5;
     }
-
     .role-date strong {
       display: block;
       font-style: normal;
@@ -816,24 +863,21 @@
       color: var(--ink);
       font-size: 0.95rem;
     }
-
     .role-org {
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 6px;
     }
-
     .role-title {
       font-family: var(--serif);
       font-size: 1.4rem;
       font-weight: 500;
       letter-spacing: -0.015em;
-      color: var(--ink);
       margin-bottom: 16px;
     }
-
     .role-body li {
       color: var(--ink-soft);
       font-size: 0.95rem;
@@ -841,50 +885,37 @@
       padding: 6px 0 6px 22px;
       position: relative;
     }
+    .role-body li::before { top: 16px; }
 
-    .role-body li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 16px;
-      width: 10px;
-      height: 1px;
-      background: var(--accent);
-    }
-
+    /* ============================================================
+       ENGAGEMENTS
+       ============================================================ */
     .eng-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
     }
-
     .eng-card {
       background: var(--paper-warm);
       border: 1px solid var(--rule);
       border-radius: 4px;
-      padding: 40px 36px;
+      padding: 38px 34px;
       transition: all 0.3s ease;
     }
-
     .eng-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 30px rgba(20, 23, 28, 0.07);
       border-color: var(--ink);
     }
-
     .eng-tag {
-      font-size: 0.72rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 16px;
     }
-
-    .eng-card h3 {
-      font-size: 1.55rem;
-      margin-bottom: 18px;
-    }
-
+    .eng-card h3 { font-size: 1.5rem; margin-bottom: 16px; }
     .eng-card li {
       padding: 9px 0 9px 18px;
       position: relative;
@@ -893,23 +924,19 @@
       line-height: 1.6;
       border-bottom: 1px solid var(--rule-soft);
     }
+    .eng-card li:last-child { border-bottom: none; }
+    .eng-card li::before { top: 20px; }
 
-    .eng-card li:last-child {
-      border-bottom: none;
-    }
-
-    .eng-card li::before {
-      top: 20px;
-    }
-
-    .contact-section {
-      padding: 130px 0 100px;
-    }
-
+    /* ============================================================
+       CONTACT
+       ============================================================ */
+    .contact-section { padding: 130px 0 100px; }
     .contact-layout {
+      display: grid;
       grid-template-columns: 1.3fr 1fr;
+      gap: 90px;
+      align-items: start;
     }
-
     .contact-headline {
       font-family: var(--serif);
       font-size: clamp(2.2rem, 4.4vw, 3.6rem);
@@ -918,119 +945,93 @@
       letter-spacing: -0.02em;
       margin-bottom: 28px;
     }
-
-    .contact-headline em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--ink-soft);
-    }
-
-    .contact-headline .accent {
-      color: var(--accent);
-      font-style: italic;
-    }
-
+    .contact-headline em { font-style: italic; font-weight: 300; color: var(--ink-soft); }
+    .contact-headline .accent { color: var(--accent); font-style: italic; }
     .contact-sub {
       font-size: 1.05rem;
-      margin-bottom: 40px;
-      max-width: 50ch;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 52ch;
     }
-
-    .contact-list {
-      border-top: 1px solid var(--rule);
-    }
-
+    .contact-list { border-top: 1px solid var(--rule); }
     .contact-list li {
       display: grid;
-      grid-template-columns: 100px 1fr;
+      grid-template-columns: 110px 1fr;
       gap: 24px;
-      padding: 22px 0;
+      padding: 20px 0;
       border-bottom: 1px solid var(--rule);
       align-items: center;
     }
-
     .contact-list .label {
-      font-size: 0.72rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--ink-mid);
     }
-
     .contact-list .value {
       font-family: var(--serif);
       font-size: 1.05rem;
-      color: var(--ink);
     }
-
     .contact-list .value a,
     .contact-list .value button {
       color: var(--ink);
       text-decoration: none;
       border: none;
       background: none;
-      font: inherit;
-      cursor: pointer;
       padding: 0;
       transition: color 0.2s ease;
       display: inline-flex;
       align-items: center;
       gap: 8px;
     }
-
     .contact-list .value a:hover,
-    .contact-list .value button:hover {
-      color: var(--accent);
-    }
-
+    .contact-list .value button:hover { color: var(--accent); }
     .contact-list .value .arrow {
       font-size: 0.85rem;
       color: var(--ink-mid);
       transition: transform 0.2s ease;
     }
-
     .contact-list .value a:hover .arrow,
     .contact-list .value button:hover .arrow {
       transform: translateX(3px);
       color: var(--accent);
     }
 
+    /* ============================================================
+       FOOTER
+       ============================================================ */
     footer {
       border-top: 1px solid var(--rule);
-      padding: 36px 0;
+      padding: 32px 0;
     }
-
     .footer-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
       flex-wrap: wrap;
-      font-size: 0.82rem;
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.04em;
       color: var(--ink-mid);
     }
-
     .footer-brand {
       font-family: var(--serif);
       font-style: italic;
       color: var(--ink);
+      font-size: 0.92rem;
+      letter-spacing: 0;
     }
 
-    ::selection {
-      background: var(--accent);
-      color: var(--paper);
-    }
-
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
     @media (max-width: 960px) {
-      .wrap,
-      .topbar-inner {
-        padding-left: 28px;
-        padding-right: 28px;
-      }
+      :root { --section-pad: 80px; --gutter: 28px; }
 
-      .hero {
-        padding: 80px 0 70px;
-      }
-
+      .hero { padding: 70px 0 60px; }
       .hero-row,
       .about-grid,
       .practice-intro,
@@ -1041,110 +1042,53 @@
         grid-template-columns: 1fr;
         gap: 50px;
       }
+      .hero-row { align-items: start; }
+      .hero-visual { min-height: auto; max-width: 480px; }
+      .visual-chip { left: 18px; bottom: 28px; }
+      .signal-orbit { right: 12px; top: 24px; }
 
-      .hero-row {
-        align-items: start;
-      }
+      .brief-body { padding: 30px 26px 30px; }
+      .brief-line { grid-template-columns: 1fr; gap: 6px; }
+      .brief-line .key { letter-spacing: 0.16em; }
 
-      .hero-visual {
-        min-height: auto;
-        max-width: 480px;
-      }
+      .trajectory { grid-template-columns: 1fr; }
+      .traj-step { border-right: none; border-bottom: 1px solid var(--rule); }
+      .traj-step:last-child { border-bottom: none; }
 
-      .visual-chip {
-        left: 18px;
-        bottom: 28px;
-      }
-
-      .signal-orbit {
-        right: 12px;
-        top: 24px;
-      }
-
-      .graphics-grid,
-      .eng-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .exp-aside {
-        position: static;
-      }
-
-      .practice-item {
-        grid-template-columns: 30px 1fr;
-        gap: 18px;
-      }
-
-      .practice-item .practice-desc {
-        grid-column: 1 / -1;
-        padding-left: 30px;
-      }
-
-      .role {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .topbar-nav {
-        display: none;
-      }
+      .graphics-grid, .eng-grid { grid-template-columns: 1fr; }
+      .exp-aside { position: static; }
+      .practice-item { grid-template-columns: 30px 1fr; gap: 18px; }
+      .practice-item .practice-desc { grid-column: 1 / -1; padding-left: 30px; }
+      .role { grid-template-columns: 1fr; gap: 8px; }
+      .topbar-nav { display: none; }
     }
 
     @media (max-width: 560px) {
-      .wrap,
-      .topbar-inner {
-        padding-left: 22px;
-        padding-right: 22px;
-      }
-
-      section {
-        padding: 80px 0;
-      }
-
-      .hero {
-        padding: 60px 0;
-      }
-
-      .hero-cta-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        justify-content: center;
-      }
-
-      .stat-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .visual-chip {
-        position: static;
-        max-width: none;
-        margin-top: 14px;
-      }
-
-      .signal-orbit {
-        display: none;
-      }
-
-      .contact-list li {
-        grid-template-columns: 1fr;
-        gap: 4px;
-        padding: 18px 0;
-      }
+      :root { --section-pad: 70px; --gutter: 22px; }
+      .hero { padding: 50px 0; }
+      .hero-cta-row { flex-direction: column; align-items: stretch; }
+      .btn { justify-content: center; }
+      .stat-grid { grid-template-columns: 1fr; }
+      .visual-chip { position: static; max-width: none; margin-top: 14px; }
+      .signal-orbit { display: none; }
+      .contact-list li { grid-template-columns: 1fr; gap: 4px; padding: 18px 0; }
+      .brief-summary { font-size: 1.05rem; padding: 20px 22px; }
     }
   </style>
 </head>
 <body>
-  <nav class="topbar">
+
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <nav class="topbar" aria-label="Primary">
     <div class="topbar-inner">
-      <div class="topbar-brand"><span class="dot"></span>Hossein Safi</div>
+      <a href="#top" class="topbar-brand"><span class="dot" aria-hidden="true"></span>Hossein Safi</a>
       <div class="topbar-nav">
-        <a href="#about">About</a>
+        <a href="#profile">Profile</a>
         <a href="#practice">Practice</a>
         <a href="#capabilities">Capabilities</a>
-        <a href="#visuals">Visuals</a>
+        <a href="#trajectory">Trajectory</a>
         <a href="#experience">Experience</a>
         <a href="#engagements">Engagements</a>
         <a class="topbar-cta" href="#contact">Get in touch →</a>
@@ -1152,11 +1096,15 @@
     </div>
   </nav>
 
-  <div class="wrap">
+  <div class="wrap" id="top">
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
     <header class="hero">
       <div class="hero-meta reveal">
         <span class="live">Now</span>
-        <span>Senior Analyst, Real Wireless</span>
+        <span>Senior Analyst · Real Wireless</span>
         <span>·</span>
         <span>Cambridge, UK</span>
       </div>
@@ -1170,7 +1118,7 @@
       <div class="hero-row reveal">
         <div class="hero-copy">
           <p class="hero-tagline">
-            I help operators, regulators, and investors make confident decisions in a fast moving telecoms landscape, combining deep technical insight with clear, executive ready analysis.
+            I help operators, regulators, and investors make confident decisions in a fast moving telecoms landscape — combining deep technical insight with clear, executive ready analysis.
           </p>
 
           <div class="hero-card">
@@ -1191,7 +1139,7 @@
           </div>
         </div>
 
-        <div class="hero-visual" aria-label="Profile photo and communication systems visual motif">
+        <div class="hero-visual" aria-label="Portrait with communication systems motif">
           <div class="profile-frame">
             <img class="profile-photo" src="assets/profile-photo.jpg" alt="Portrait of Hossein Safi">
           </div>
@@ -1204,22 +1152,85 @@
       </div>
     </header>
 
-    <section id="about">
-      <div class="section-eyebrow"><span class="num">01</span> Profile <span></span></div>
+    <!-- ============================================================
+         PROFILE — AI-style brief
+         ============================================================ -->
+    <section id="profile">
+      <div class="section-eyebrow"><span class="num">01</span> Profile</div>
+
+      <article class="brief reveal" aria-label="Profile brief">
+        <header class="brief-header">
+          <div class="left">
+            <span class="glyph" aria-hidden="true"></span>
+            <span>profile.brief / v2026.4</span>
+          </div>
+          <div class="right">
+            <span>signed · h.safi</span>
+            <span class="status">verified</span>
+          </div>
+        </header>
+
+        <div class="brief-body">
+          <div class="brief-line">
+            <span class="key">Identity</span>
+            <span class="val">Hossein Safi <em>— PhD, Telecommunications Engineering · MIEEE · AFHEA</em></span>
+          </div>
+          <div class="brief-line">
+            <span class="key">Role</span>
+            <span class="val">Senior Analyst, <em>Real Wireless</em> · Cambridge, UK</span>
+          </div>
+          <div class="brief-line">
+            <span class="key">Operates at</span>
+            <span class="val">
+              <span class="pill">Strategy</span>
+              <span class="pill">Techno-economics</span>
+              <span class="pill">Regulation</span>
+              <span class="pill">System engineering</span>
+            </span>
+          </div>
+          <div class="brief-line">
+            <span class="key">Domains</span>
+            <span class="val">
+              <span class="pill">5G / 6G</span>
+              <span class="pill">NTN &amp; satellite</span>
+              <span class="pill">Optical wireless</span>
+              <span class="pill">AI enabled networks</span>
+              <span class="pill">Digital infrastructure</span>
+            </span>
+          </div>
+          <div class="brief-line">
+            <span class="key">Recognition</span>
+            <span class="val">UK Global Talent · 7+ years TMT consulting and applied research</span>
+          </div>
+          <div class="brief-line">
+            <span class="key">Trajectory</span>
+            <span class="val">Senior Analyst <em>→</em> Managing Consultant <em>→</em> long-term executive leadership in telecoms &amp; digital infrastructure</span>
+          </div>
+
+          <div class="brief-summary">
+            A consultant who bridges <em>deep technical analysis</em> and the strategic decisions leaders actually have to make — translating emerging technology into investment cases, regulatory positions, and board-level recommendations that hold up under scrutiny.
+          </div>
+        </div>
+
+        <footer class="brief-footer">
+          <span>generated · executive brief</span>
+          <span>context: telecoms · strategy · advisory<span class="caret" aria-hidden="true"></span></span>
+        </footer>
+      </article>
 
       <div class="about-grid">
         <div class="reveal">
           <p class="about-lead">
-            A consultant who bridges <em>deep technical analysis</em> and the strategic decisions leaders actually have to make.
+            Working where <em>technical rigour meets strategic clarity</em> — in the room where evidence becomes a decision.
           </p>
           <div class="about-body">
-            <p>I'm a Senior Analyst at Real Wireless, working at the intersection of wireless innovation, non terrestrial networks, and AI driven communication systems. My focus is helping clients translate emerging technology into clear, defensible strategy across future network architectures, hybrid RF optical systems, and data driven performance evaluation.</p>
-            <p>Before joining Real Wireless, I was a Research Associate at the University of Cambridge, contributing to flagship UK programmes on next generation connectivity. I hold a PhD in Telecommunications Engineering and am a UK Global Talent awardee.</p>
-            <p>I work best where rigour matters: investment cases, regulatory submissions, market models, and board level recommendations that need to hold up under scrutiny.</p>
+            <p>I'm a Senior Analyst at Real Wireless, working at the intersection of wireless innovation, non-terrestrial networks, and AI-driven communication systems. My focus is translating emerging technology into clear, defensible strategy across future network architectures, hybrid RF–optical systems, and data-driven performance evaluation.</p>
+            <p>Before Real Wireless, I was a Research Associate at the University of Cambridge, contributing to flagship UK programmes on next-generation connectivity. I hold a PhD in Telecommunications Engineering and am a UK Global Talent awardee.</p>
+            <p>I work best where rigour matters: investment cases, regulatory submissions, market models, and board-level recommendations that need to hold up under scrutiny.</p>
           </div>
         </div>
 
-        <aside class="about-side reveal">
+        <aside class="reveal">
           <div class="stat-grid">
             <div class="stat">
               <div class="stat-num">7<em>+</em></div>
@@ -1235,19 +1246,22 @@
             </div>
             <div class="stat">
               <div class="stat-num">PhD</div>
-              <div class="stat-label">Telecommunications Engineering · MIEEE · AFHEA</div>
+              <div class="stat-label">Telecommunications · MIEEE · AFHEA</div>
             </div>
           </div>
         </aside>
       </div>
     </section>
 
+    <!-- ============================================================
+         PRACTICE
+         ============================================================ -->
     <section id="practice">
-      <div class="section-eyebrow"><span class="num">02</span> Practice areas <span></span></div>
+      <div class="section-eyebrow"><span class="num">02</span> Practice areas</div>
 
       <div class="practice-intro">
         <h2 class="reveal">Where I tend to <em>add the most value.</em></h2>
-        <p class="practice-intro-text reveal">Engagements typically resolve into one of four shapes: a market or demand model, a regulatory or licensing position, a techno economic case for an architecture or rollout, or a structured stakeholder process. Each is built to communicate complex evidence clearly to senior audiences.</p>
+        <p class="practice-intro-text reveal">Engagements typically resolve into one of four shapes: a market or demand model, a regulatory or licensing position, a techno-economic case for an architecture or rollout, or a structured stakeholder process. Each is built to communicate complex evidence clearly to senior audiences.</p>
       </div>
 
       <div class="practice-list">
@@ -1257,8 +1271,8 @@
           <div class="practice-desc">
             <ul>
               <li>Demand modelling for mobile, IoT, NTN, and digital infrastructure</li>
-              <li>Segmentation, TAM, SAM, SOM, adoption scenarios, and sensitivity analysis</li>
-              <li>Executive ready implications and recommendations</li>
+              <li>Segmentation, TAM / SAM / SOM, adoption scenarios, and sensitivity analysis</li>
+              <li>Executive-ready implications and recommendations</li>
             </ul>
           </div>
         </div>
@@ -1277,12 +1291,12 @@
 
         <div class="practice-item reveal">
           <div class="practice-num">iii.</div>
-          <div class="practice-title">Techno economic &amp; investment cases</div>
+          <div class="practice-title">Techno-economic &amp; investment cases</div>
           <div class="practice-desc">
             <ul>
-              <li>Cost benefit and risk analysis for network architectures and rollouts</li>
+              <li>Cost–benefit and risk analysis for network architectures and rollouts</li>
               <li>Benchmarking and scenario planning across technology options</li>
-              <li>Business case development and deployment trade off analysis</li>
+              <li>Business case development and deployment trade-off analysis</li>
             </ul>
           </div>
         </div>
@@ -1301,8 +1315,11 @@
       </div>
     </section>
 
+    <!-- ============================================================
+         CAPABILITIES
+         ============================================================ -->
     <section id="capabilities">
-      <div class="section-eyebrow"><span class="num">03</span> Capabilities <span></span></div>
+      <div class="section-eyebrow"><span class="num">03</span> Capabilities</div>
 
       <h2 class="reveal" style="margin-bottom:60px;">Technical depth, paired with the <em>analytical methods</em> to turn it into decisions.</h2>
 
@@ -1310,26 +1327,26 @@
         <div class="cap-col reveal">
           <h4>Domain expertise</h4>
           <ul class="cap-list">
-            <li><span class="key">Mobile</span><span>2G to 6G network architecture and performance modelling</span></li>
-            <li><span class="key">NTN</span><span>Non terrestrial and satellite communications, service feasibility</span></li>
-            <li><span class="key">Optical</span><span>Optical and fibre networks, hybrid RF optical systems</span></li>
+            <li><span class="key">Mobile</span><span>2G–6G network architecture and performance modelling</span></li>
+            <li><span class="key">NTN</span><span>Non-terrestrial and satellite communications, service feasibility</span></li>
+            <li><span class="key">Optical</span><span>Optical and fibre networks, hybrid RF–optical systems</span></li>
             <li><span class="key">IoT</span><span>LPWAN technologies, IoT platforms, and ecosystem regulation</span></li>
-            <li><span class="key">AI</span><span>Data driven and AI enabled network optimisation</span></li>
+            <li><span class="key">AI</span><span>Data-driven and AI-enabled network optimisation</span></li>
           </ul>
           <div class="tags">
             <span class="tag">5G / 6G</span>
             <span class="tag">NTN &amp; satellite</span>
             <span class="tag">IoT</span>
             <span class="tag">Spectrum &amp; licensing</span>
-            <span class="tag">Hybrid RF optical</span>
+            <span class="tag">Hybrid RF–optical</span>
           </div>
         </div>
 
         <div class="cap-col reveal">
           <h4>Analytical methods</h4>
           <ul class="cap-list">
-            <li><span class="key">Modelling</span><span>Techno economic, scenario, and sensitivity analysis</span></li>
-            <li><span class="key">Evaluation</span><span>Cost benefit, risk, benchmarking, and comparative options</span></li>
+            <li><span class="key">Modelling</span><span>Techno-economic, scenario, and sensitivity analysis</span></li>
+            <li><span class="key">Evaluation</span><span>Cost–benefit, risk, benchmarking, and comparative options</span></li>
             <li><span class="key">Markets</span><span>Market and competitive analysis, ecosystem mapping</span></li>
             <li><span class="key">Delivery</span><span>Executive presentations, briefings, and structured reports</span></li>
             <li><span class="key">Tooling</span><span>MATLAB, Python, Excel modelling, and system simulation</span></li>
@@ -1344,12 +1361,48 @@
       </div>
     </section>
 
+    <!-- ============================================================
+         TRAJECTORY
+         ============================================================ -->
+    <section id="trajectory">
+      <div class="section-eyebrow"><span class="num">04</span> Trajectory</div>
+
+      <div class="practice-intro">
+        <h2 class="reveal">Building from <em>technical depth</em> toward strategic leadership.</h2>
+        <p class="practice-intro-text reveal">The work compounds: rigorous analysis becomes trusted advisory, trusted advisory becomes strategic stewardship. The intent is not a title — it is the ability to make the right call when the evidence is incomplete and the stakes are real.</p>
+      </div>
+
+      <div class="trajectory reveal">
+        <div class="traj-step is-now">
+          <div class="marker"><span class="dot"></span>Now · 2026</div>
+          <h3>Senior Analyst <em>— depth</em></h3>
+          <p>Technical modelling, regulatory analysis, and techno-economic cases that decisions can rest on. Trusted by operators, regulators, and investors for clarity under scrutiny.</p>
+          <div class="horizon">Telecoms strategy &amp; advisory</div>
+        </div>
+        <div class="traj-step">
+          <div class="marker"><span class="dot"></span>Near · horizon 1</div>
+          <h3>Managing Consultant <em>— breadth</em></h3>
+          <p>Leading multi-disciplinary engagements end to end — shaping client strategy, growing a practice area, and developing the next layer of senior talent across the firm.</p>
+          <div class="horizon">Practice &amp; team leadership</div>
+        </div>
+        <div class="traj-step">
+          <div class="marker"><span class="dot"></span>Long · horizon 2</div>
+          <h3>Executive leadership <em>— stewardship</em></h3>
+          <p>Long-term stewardship of organisations shaping the future of connectivity — bringing technical fluency, commercial judgement, and strategic clarity into the C-suite.</p>
+          <div class="horizon">Telecoms &amp; digital infrastructure</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VISUAL IDENTITY
+         ============================================================ -->
     <section id="visuals">
-      <div class="section-eyebrow"><span class="num">04</span> Visual identity <span></span></div>
+      <div class="section-eyebrow"><span class="num">05</span> Visual identity</div>
 
       <div class="visuals-intro">
-        <h2 class="reveal">Graphics that connect me <em>my technical domain.</em></h2>
-        <p class="reveal">I have the experience of working in different technical domains:</p>
+        <h2 class="reveal">Graphics drawn from <em>my technical domain.</em></h2>
+        <p class="reveal">A sample of the technical territories the work moves across — from optical wireless and 6G architecture to techno-economic modelling.</p>
       </div>
 
       <div class="graphics-grid">
@@ -1359,7 +1412,7 @@
           </div>
           <div class="graphic-body">
             <h3>Optical wireless systems</h3>
-            <p>VCSEL arrays, LiFi, beam shaping, and hybrid RF optical architectures for dense indoor/outdoor connectivity.</p>
+            <p>VCSEL arrays, LiFi, beam shaping, and hybrid RF–optical architectures for dense indoor and outdoor connectivity.</p>
           </div>
         </article>
 
@@ -1369,29 +1422,32 @@
           </div>
           <div class="graphic-body">
             <h3>6G and NTN strategy</h3>
-            <p> Multi-access networks, satellite integration, resilience, coverage economics, and future network planning.</p>
+            <p>Multi-access networks, satellite integration, resilience, coverage economics, and future network planning.</p>
           </div>
         </article>
 
         <article class="graphic-card reveal">
           <div class="graphic-media">
-            <img src="assets/analytics_graphic.png" alt="Telecom techno economic analysis and demand modelling graphic">
+            <img src="assets/analytics_graphic.png" alt="Telecom techno-economic analysis and demand modelling graphic">
           </div>
           <div class="graphic-body">
-            <h3>Techno economic analysis</h3>
+            <h3>Techno-economic analysis</h3>
             <p>Scenario modelling, demand forecasting, investment cases, and evidence-led strategic recommendations.</p>
           </div>
         </article>
       </div>
     </section>
 
+    <!-- ============================================================
+         EXPERIENCE
+         ============================================================ -->
     <section id="experience">
-      <div class="section-eyebrow"><span class="num">05</span> Experience <span></span></div>
+      <div class="section-eyebrow"><span class="num">06</span> Experience</div>
 
       <div class="exp-layout">
         <aside class="exp-aside reveal">
-          <h2 style="font-size:1.9rem;">Selected roles<br><em>&amp; impact.</em></h2>
-          <p>A track record spanning industry consulting, applied research, and public sector advisory, with an emphasis on delivering clear, evidence-based insight that decisions can rest on.</p>
+          <h2>Selected roles<br><em>&amp; impact.</em></h2>
+          <p>A track record spanning industry consulting, applied research, and public-sector advisory — with an emphasis on delivering clear, evidence-based insight that decisions can rest on.</p>
         </aside>
 
         <div class="timeline">
@@ -1402,7 +1458,7 @@
               <div class="role-title">Senior Analyst</div>
               <ul class="role-body">
                 <li>Advising operators, regulators, and investors at the intersection of wireless innovation, non-terrestrial networks, and AI-driven communication systems.</li>
-                <li>Translating emerging technologies into actionable strategy across future network architectures, hybrid RF optical systems, and data-driven performance evaluation.</li>
+                <li>Translating emerging technologies into actionable strategy across future network architectures, hybrid RF–optical systems, and data-driven performance evaluation.</li>
                 <li>Combining technical modelling, system analysis, and market insight to inform investment and deployment decisions.</li>
               </ul>
             </div>
@@ -1412,7 +1468,7 @@
             <div class="role-date"><strong>Apr 2024</strong>Mar 2026</div>
             <div>
               <div class="role-org">University of Cambridge</div>
-              <div class="role-title">Post Doctoral Research Associate</div>
+              <div class="role-title">Post-Doctoral Research Associate</div>
               <ul class="role-body">
                 <li>Led technical and economic assessments of emerging non-terrestrial and satellite-based connectivity solutions.</li>
                 <li>Developed end-to-end link budget, performance, and cost models to inform feasibility and deployment trade-offs.</li>
@@ -1425,10 +1481,10 @@
             <div class="role-date"><strong>Oct 2023</strong>Mar 2024</div>
             <div>
               <div class="role-org">University of Strathclyde</div>
-              <div class="role-title">Post Doctoral Research Associate</div>
+              <div class="role-title">Post-Doctoral Research Associate</div>
               <ul class="role-body">
                 <li>Contributed to the REASON UK 6G flagship programme, supporting multi-access connectivity frameworks.</li>
-                <li>Developed system level architectures and analytical models to assess advanced wireless technologies.</li>
+                <li>Developed system-level architectures and analytical models to assess advanced wireless technologies.</li>
                 <li>Aligned technical work with deployment, standardisation, and regulatory considerations alongside an industry and academic consortium.</li>
               </ul>
             </div>
@@ -1453,8 +1509,8 @@
               <div class="role-org">Teyf Research &amp; Consulting Group</div>
               <div class="role-title">Senior Analyst</div>
               <ul class="role-body">
-                <li>Led strategy and commercial analysis for telecom operators and public sector clients.</li>
-                <li> Co-developed a 5G spectrum pricing and valuation model, enabling a 15% increase in planned network upgrade investment.</li>
+                <li>Led strategy and commercial analysis for telecom operators and public-sector clients.</li>
+                <li>Co-developed a 5G spectrum pricing and valuation model, enabling a 15% increase in planned network upgrade investment.</li>
                 <li>Led RFP response development and pricing strategy for a nationwide IoT platform rollout.</li>
               </ul>
             </div>
@@ -1474,8 +1530,11 @@
       </div>
     </section>
 
+    <!-- ============================================================
+         ENGAGEMENTS
+         ============================================================ -->
     <section id="engagements">
-      <div class="section-eyebrow"><span class="num">06</span> Flagship engagements <span></span></div>
+      <div class="section-eyebrow"><span class="num">07</span> Flagship engagements</div>
 
       <h2 class="reveal" style="margin-bottom:50px;">Selected programmes <em>I've helped shape.</em></h2>
 
@@ -1487,7 +1546,7 @@
             <li>Led integration of optical wireless into a multi-access framework within the REASON architecture.</li>
             <li>Supported strategy and governance for a large multi-partner programme involving operators, vendors, and academic institutions.</li>
             <li>Led preparation of technical and strategy documentation aligned with industry standards.</li>
-            <li>Coordinated with more than 10 stakeholders and supported regular steering and board level meetings.</li>
+            <li>Coordinated with more than 10 stakeholders and supported regular steering and board-level meetings.</li>
           </ul>
         </div>
 
@@ -1496,16 +1555,19 @@
           <h3>TITAN Programme</h3>
           <ul>
             <li>Served as interim project manager, supporting delivery planning, coordination, and reporting across a multidisciplinary consortium.</li>
-            <li>Developed and led an industry and academic strategy session on future connectivity frameworks.</li>
-            <li> Co-chaired a thematic workshop at IEEE INFOCOM.</li>
+            <li>Developed and led an industry-and-academic strategy session on future connectivity frameworks.</li>
+            <li>Co-chaired a thematic workshop at IEEE INFOCOM.</li>
             <li>Contributed to the broader stakeholder engagement strategy.</li>
           </ul>
         </div>
       </div>
     </section>
 
+    <!-- ============================================================
+         CONTACT
+         ============================================================ -->
     <section id="contact" class="contact-section">
-      <div class="section-eyebrow"><span class="num">07</span> Contact <span></span></div>
+      <div class="section-eyebrow"><span class="num">08</span> Contact</div>
 
       <div class="contact-layout">
         <div class="reveal">
@@ -1515,7 +1577,7 @@
             <span class="accent">Let's talk.</span>
           </h2>
           <p class="contact-sub">
-            Available for selective consulting engagements, advisory roles, and research collaborations across the TMT sector. The best place to start is a 30 minute introductory call.
+            Available for selective consulting engagements, advisory roles, and research collaborations across the TMT sector. The best place to start is a 30-minute introductory call.
           </p>
           <a class="btn btn-primary" href="https://calendar.app.google/G5mBLu5Wmue2BrTTA" target="_blank" rel="noopener">
             Book a 30 minute call
@@ -1557,8 +1619,10 @@
   </div>
 
   <script>
+    // Year
     document.getElementById('yr').textContent = new Date().getFullYear();
 
+    // Reveal on scroll
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -1566,30 +1630,23 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
-    });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
-    document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
-
+    // Email reveal — keeps obfuscation
     (() => {
       const button = document.getElementById('revealBtn');
       if (!button) return;
-
       button.addEventListener('click', async () => {
-        const encodedAddress = 'moc.liamg@10niessoh.ifas';
-        const emailAddress = encodedAddress.split('').reverse().join('');
-        const originalContent = button.innerHTML;
-
+        const encoded = 'moc.liamg@10niessoh.ifas';
+        const email = encoded.split('').reverse().join('');
+        const original = button.innerHTML;
         try {
-          await navigator.clipboard.writeText(emailAddress);
+          await navigator.clipboard.writeText(email);
           button.innerHTML = 'Copied ✓';
-          setTimeout(() => {
-            button.innerHTML = originalContent;
-          }, 2000);
+          setTimeout(() => { button.innerHTML = original; }, 2000);
         } catch {
-          window.location.href = `mailto:${emailAddress}`;
+          window.location.href = `mailto:${email}`;
         }
       });
     })();
