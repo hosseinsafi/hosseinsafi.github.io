@@ -1,0 +1,15 @@
+# Keep local-only
+SETUP.md
+
+# Jekyll build artifacts
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Bundler
+.bundle/
+vendor/
+
+# OS/editor cruft
+.DS_Store
