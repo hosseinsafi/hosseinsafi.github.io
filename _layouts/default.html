@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description | strip_newlines }}">
+  <meta name="author" content="{{ site.author }}">
+
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description | strip_newlines }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}/assets/profile-photo.jpg">
+
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} — Updates" href="{{ '/feed.xml' | relative_url }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap site-header-inner">
+      <a href="{{ '/' | relative_url }}" class="site-brand">
+        <img src="{{ '/assets/profile-photo.jpg' | relative_url }}" alt="" class="brand-photo" width="32" height="32">
+        <span>Hossein Safi</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="{{ '/#work' | relative_url }}">Work</a>
+        <a href="{{ '/#experience' | relative_url }}">Experience</a>
+        <a href="{{ '/updates/' | relative_url }}">Updates</a>
+        <a href="{{ '/#contact' | relative_url }}">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer-inner">
+      <span>&copy; {{ 'now' | date: "%Y" }} Hossein Safi</span>
+      <span>All views are personal and not those of any employer.</span>
+    </div>
+  </footer>
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+  {% if page.url == '/' %}<script src="{{ '/assets/js/ask.js' | relative_url }}" defer></script>{% endif %}
+</body>
+</html>

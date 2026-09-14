@@ -1,0 +1,30 @@
+title: Hossein Safi
+description: >-
+  Senior Analyst, Real Wireless — telecoms strategy and techno-economic
+  analysis across 5G/6G, non-terrestrial networks, optical wireless, and
+  AI-enabled networks.
+url: "https://hsafi.com"
+author: Hossein Safi
+lang: en
+
+markdown: kramdown
+permalink: /updates/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+
+feed:
+  path: feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

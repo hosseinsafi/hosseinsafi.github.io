@@ -1,0 +1,28 @@
+---
+layout: default
+title: Updates
+description: "Talks, papers, project milestones, and short notes from Hossein Safi."
+permalink: /updates/
+---
+
+<section class="updates-page">
+  <h1>Updates</h1>
+
+  {% if site.posts.size > 0 %}
+    {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    {% for year in posts_by_year %}
+    <h2 class="update-year">{{ year.name }}</h2>
+    <ul class="update-list update-list-full">
+      {% for post in year.items %}
+        <li>
+          <span class="update-date">{{ post.date | date: "%b %-d" }}{% if post.type %} <span class="update-type">&middot; {{ post.type }}</span>{% endif %}</span>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          {% if post.excerpt and post.excerpt != empty %}<p>{{ post.excerpt }}</p>{% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  {% else %}
+    <p>No updates yet &mdash; check back soon.</p>
+  {% endif %}
+</section>
