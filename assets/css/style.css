@@ -12,7 +12,7 @@
   --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-  --measure: 640px;
+  --measure: 680px;
 }
 
 /* ==========================================================
@@ -54,7 +54,7 @@ h1, h2, h3 {
 }
 h1 { font-size: 2.1rem; margin: 0 0 12px; }
 h2 { font-size: 1.5rem; margin: 0 0 20px; }
-h3 { font-size: 1.1rem; margin: 32px 0 12px; }
+h3 { font-size: 1.1rem; margin: 24px 0 10px; }
 p { margin: 0 0 12px; }
 
 ul { margin: 0; padding: 0; }
@@ -62,7 +62,7 @@ ul { margin: 0; padding: 0; }
 /* ==========================================================
    Section rhythm
    ========================================================== */
-section { padding: 56px 0; border-top: 1px solid var(--rule); }
+section { padding: 40px 0; border-top: 1px solid var(--rule); }
 main > section:first-of-type { border-top: none; }
 
 /* ==========================================================
@@ -85,8 +85,8 @@ main > section:first-of-type { border-top: none; }
   border-bottom: none;
 }
 .brand-photo {
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   object-fit: cover;
   background: var(--rule);
@@ -99,7 +99,7 @@ main > section:first-of-type { border-top: none; }
 /* ==========================================================
    Hero
    ========================================================== */
-.hero { padding-top: 48px; }
+.hero { padding-top: 28px; }
 .eyebrow { font-size: 0.88rem; color: var(--ink-soft); margin: 0 0 8px; }
 .hero-lede { color: var(--ink-soft); max-width: 56ch; }
 .hero-links {
@@ -146,21 +146,34 @@ main > section:first-of-type { border-top: none; }
 @media (prefers-reduced-motion: reduce) { .ask-cursor { animation: none; } }
 @keyframes blink { 50% { opacity: 0; } }
 
-.brief-list { list-style: none; margin: 0 0 20px; }
+.brief-list { list-style: none; margin: 0 0 18px; }
 .brief-list li {
-  padding: 12px 0;
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 20px;
+  padding: 9px 0;
   border-bottom: 1px solid var(--rule);
   color: var(--ink-soft);
+  align-items: baseline;
 }
 .brief-list li:last-child { border-bottom: none; }
 .brief-key {
-  display: block;
   font-size: 0.76rem;
   color: var(--ink-faint);
-  margin-bottom: 3px;
+}
+
+@media (max-width: 640px) {
+  .brief-list li { grid-template-columns: 1fr; gap: 2px; }
 }
 
 .ask-summary { color: var(--ink-soft); font-style: italic; margin: 0; }
+
+.ask-panel.is-in { animation: askFadeIn 0.28s ease; }
+@keyframes askFadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .ask-panel.is-in { animation: none; } }
 
 .update-list { list-style: none; margin: 0; }
 .update-list li {
@@ -180,7 +193,7 @@ main > section:first-of-type { border-top: none; }
 .practice p strong { color: var(--ink); font-weight: 600; }
 
 .programme-list { list-style: none; margin: 0; }
-.programme-list li { padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.programme-list li { padding: 12px 0; border-bottom: 1px solid var(--rule); }
 .programme-list li:last-child { border-bottom: none; }
 .programme-title {
   font-family: var(--serif);
@@ -202,9 +215,9 @@ main > section:first-of-type { border-top: none; }
 .role-list { display: flex; flex-direction: column; }
 .role {
   display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 28px;
-  padding: 28px 0;
+  grid-template-columns: 116px 1fr;
+  gap: 20px;
+  padding: 20px 0;
   border-bottom: 1px solid var(--rule);
 }
 .role:last-child { border-bottom: none; }
